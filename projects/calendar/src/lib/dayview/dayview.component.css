@@ -1,0 +1,32 @@
+#dContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 99;
+    transition: all 0.2s;
+}
+
+#dContainer.isselected {
+    transform: scale(1.1);
+    background: linear-gradient(to top, #651FFF, #7C4DFF);
+    z-index: 100;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
+}
+
+#dContainer.isselected p {
+    color: #FFFFFF;
+}
+
+#dContainer.ismultiselected {
+    transform: scale(1);
+    background: rgb(101, 31, 255) !important;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#dContainer.istoday:not(.isselected){
+    background: rgba(0, 0, 0, 0.05);
+}

@@ -1,0 +1,336 @@
+html,
+body{
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: 'montserratextrabold';
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-family: 'montserratregular'
+}
+
+p.title-main {
+  font-size: 50px;
+  font-family: 'montserratextrabold';
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+p.title-sub {
+  font-size: 40px;
+  font-family: 'montserratextrabold';
+  line-height: 110%;
+}
+
+p.title-sub-sub {
+  font-size: 25px;
+  font-family: 'montserratextrabold';
+}
+
+p.description {
+  font-size: 14px;
+}
+
+p.readable {
+  line-height: 2;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 1.25;
+  font-family: 'montserratbold';
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+input,
+textarea {
+  font-family: 'montserratregular';
+  font-size: 15px;
+}
+
+textarea {
+  resize: none;
+  height: 10vh;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+  outline: none;
+}
+
+a {
+  outline: none;
+}
+
+a:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.width-full {
+  width: 100%;
+}
+
+.width-half {
+  width: 50%;
+}
+
+.width-maxed {
+  width: 100%;
+  max-width: 1100px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.grid>* {
+  flex-grow: 1;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row.content-centered,
+.column.content-centered {
+  align-items: center;
+}
+
+/* PADDING - THIN */
+.padding-thin {
+  padding: 5px;
+}
+
+.width-full.padding-thin:not(.nopadding-left.nopadding-right),
+.width-full.padding-thin:not(.nopadding-horizontal) {
+  width: calc(100% - 10px);
+}
+
+.width-full.padding-thin.nopadding-left,
+.width-full.padding-thin.nopadding-right {
+  width: calc(100% - 5px);
+}
+
+.width-maxed.padding-thin:not(.nopadding-left.nopadding-right),
+.width-maxed.padding-thin:not(.nopadding-horizontal) {
+  max-width: 1090px;
+}
+
+.width-maxed.padding-thin.nopadding-left,
+.width-maxed.padding-thin.nopadding-right{
+  max-width: 1095px;
+}
+
+/* PADDING - SMALL */
+.padding-extrasmall {
+  padding: 12px;
+}
+
+.width-full.padding-extrasmall:not(.nopadding-left.nopadding-right),
+.width-full.padding-extrasmall:not(.nopadding-horizontal) {
+  width: calc(100% - 24px);
+}
+
+.width-full.padding-extrasmall.nopadding-left,
+.width-full.padding-extrasmall.nopadding-right {
+  width: calc(100% - 12px);
+}
+
+.width-maxed.padding-extrasmall:not(.nopadding-left.nopadding-right),
+.width-maxed.padding-extrasmall:not(.nopadding-horizontal) {
+  max-width: 1076px;
+}
+
+.width-maxed.padding-extrasmall.nopadding-left,
+.width-maxed.padding-extrasmall.nopadding-right{
+  max-width: 1095px;
+}
+
+/* TODO : Add width-maxed styles like above */
+/* PADDING - SMALL */
+.padding-small {
+  padding: 18px;
+}
+
+.width-full.padding-small:not(.nopadding-left.nopadding-right),
+.width-full.padding-small:not(.nopadding-horizontal) {
+  width: calc(100% - 36px);
+}
+
+.width-full.padding-small.nopadding-left,
+.width-full.padding-small.nopadding-right {
+  width: calc(100% - 18px);
+}
+
+.width-maxed.padding-small {
+  max-width: 1064px;
+}
+
+
+/* PADDING - NORMAL */
+.padding-normal {
+  padding: 28px;
+}
+
+.width-full.padding-normal:not(.nopadding-left.nopadding-right),
+.width-full.padding-normal:not(.nopadding-horizontal) {
+  width: calc(100% - 56px);
+}
+
+.width-full.padding-normal.nopadding-left,
+.width-full.padding-normal.nopadding-right {
+  width: calc(100% - 28px);
+}
+
+.width-maxed.padding-normal {
+  max-width: 1044px;
+}
+
+/* PADDING - BIG */
+.padding-big {
+  padding: 40px;
+}
+
+.width-full.padding-big:not(.nopadding-left.nopadding-right),
+.width-full.padding-big:not(.nopadding-horizontal) {
+  width: calc(100% - 80px);
+}
+
+.width-full.padding-big.nopadding-left,
+.width-full.padding-big.nopadding-right {
+  width: calc(100% - 40px);
+}
+
+.width-maxed.padding-big {
+  max-width: 1020px;
+}
+
+/* PADDING - EXTRABIG */
+.padding-extrabig {
+  padding: 100px;
+}
+
+.width-full.padding-extrabig:not(.nopadding-left.nopadding-right),
+.width-full.padding-extrabig:not(.nopadding-horizontal) {
+  width: calc(100% - 200px);
+}
+
+.width-full.padding-extrabig.nopadding-left,
+.width-full.padding-extrabig.nopadding-right {
+  width: calc(100% - 100px);
+}
+
+.width-maxed.padding-extrabig {
+  max-width: 900px;
+}
+
+.nopadding-left {
+  padding-left: 0;
+}
+
+.nopadding-right {
+  padding-right: 0;
+}
+
+.nopadding-top {
+  padding-top: 0;
+}
+
+.nopadding-bottom {
+  padding-bottom: 0;
+}
+
+.nopadding-horizontal {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nopadding-vertical {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.margin-thin {
+  margin: 5px;
+}
+
+.margin-extrasmall {
+  margin: 12px;
+}
+
+.margin-small {
+  margin: 18px;
+}
+
+.margin-normal {
+  margin: 28px;
+}
+
+.margin-big {
+  margin: 40px;
+}
+
+.margin-extrabig {
+  margin: 100px;
+}
+
+.nomargin-left {
+  margin-left: 0;
+}
+
+.nomargin-right {
+  margin-right: 0;
+}
+
+.nomargin-top {
+  margin-top: 0;
+}
+
+.nomargin-bottom {
+  margin-bottom: 0;
+}
+
+.nomargin-horizontal {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.nomargin-vertical {
+  margin-top: 0;
+  margin-bottom: 0;
+}

@@ -1,0 +1,18 @@
+<div id="dContainer">
+
+    <div id="dWeekStrip" class="width-full row content-centered">
+        <p *ngFor="let weekday of getWeekdays()">
+            {{ weekday }}
+        </p>
+    </div>
+
+    <div id="dDays" [class.sixrows]="calcRows() === 6" class="width-full">
+
+        <mg-dayview *ngFor="let day of calcPre()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day pre"></mg-dayview>
+
+        <mg-dayview *ngFor="let day of calcDays()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day current"></mg-dayview>
+
+        <mg-dayview *ngFor="let day of calcPost()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day post"></mg-dayview>
+    </div>
+
+</div>
