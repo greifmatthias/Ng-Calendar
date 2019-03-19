@@ -27,15 +27,10 @@ export class MonthviewComponent implements OnInit {
     ];
   }
 
-  // Data
-  selection: moment_.Moment[];
-
-  // UI
+  @Input() selection: moment_.Moment[];
 
   constructor() {
 
-    // Default vals
-    this.selection = [];
   }
 
   ngOnInit() { }

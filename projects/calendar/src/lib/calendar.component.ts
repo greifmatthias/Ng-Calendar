@@ -31,13 +31,15 @@ export class CalendarComponent implements OnInit {
       this.doSelectToday();
     }
 
+    this.selection = [];
+
   }
 
   /*
   * Do selection
   * Sets local var
   */
-  public doSelect(moment: moment_.Moment): void {
+  doSelect(moment: moment_.Moment): void {
     this.moment = moment;
   }
 
@@ -45,7 +47,7 @@ export class CalendarComponent implements OnInit {
   * Do selection to current date
   * Sets local var
   */
-  public doSelectToday(): void {
+  doSelectToday(): void {
 
     this.doSelect(moment().clone());
   }
@@ -56,6 +58,24 @@ export class CalendarComponent implements OnInit {
   */
   onChangeSelection(moments: moment_.Moment[]) {
 
-    this.onSelectionChanged.emit(moments);
+    moments.forEach(moment => {
+      if(this.selection.filter(day => day.clone().startOf('day').diff(moment.clone().startOf('day'), 'days') === 0).length === 0){
+
+        this.selection.push(moment);
+      }
+    });
+
+    this.onSelectionChanged.emit(this.selection);
+  }
+
+  /*
+  * Triggered on month navigation
+  * Emits year and month to parent through onNavigation
+  */
+  onNavigated(moment : moment_.Moment){
+    this.onNavigation.emit({
+      year: moment.clone().year,
+      month : moment.clone().month
+    });
   }
 }
