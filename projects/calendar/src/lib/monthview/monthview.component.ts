@@ -63,7 +63,7 @@ export class MonthviewComponent implements OnInit {
 
           // Select backwards
           // starting at last selected date untill new selected date
-          for (var i = this.selection[0].clone().startOf('day'); i.diff(daymoment.clone().startOf('day'), 'days') >= 0; i.subtract(1, 'days')) {
+          for (var i = this.selection[this.selection.length - 1].clone().startOf('day'); i.diff(daymoment.clone().startOf('day'), 'days') >= 0; i.subtract(1, 'days')) {
 
             if (!this.isSelected(i)) {
 
