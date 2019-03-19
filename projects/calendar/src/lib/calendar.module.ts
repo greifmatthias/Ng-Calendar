@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { CalendarComponent } from './calendar.component';
 import { MonthviewComponent } from './monthview/monthview.component';
 import { DayviewComponent } from './dayview/dayview.component';
+import { NavviewComponent } from './navview/navview.component';
 
 @NgModule({
-  declarations: [CalendarComponent, MonthviewComponent, DayviewComponent],
+  declarations: [CalendarComponent, MonthviewComponent, DayviewComponent, NavviewComponent],
   imports: [
     CommonModule
   ],

@@ -1,0 +1,14 @@
+#dContainer{
+  height: 100%;
+  position: relative;
+}
+
+#dMonth {
+  height: calc(100% - 50px);
+  position: absolute;
+  margin-top: 50px;
+}
+
+#dNavigation {
+  height: 50px;
+}

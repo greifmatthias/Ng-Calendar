@@ -27,15 +27,10 @@ export class MonthviewComponent implements OnInit {
     ];
   }
 
-  // Data
-  selection: moment_.Moment[];
-
-  // UI
+  @Input() selection: moment_.Moment[];
 
   constructor() {
 
-    // Default vals
-    this.selection = [];
   }
 
   ngOnInit() { }
@@ -218,6 +213,10 @@ export class MonthviewComponent implements OnInit {
 
   // ************ MANIPULATION
 
+  /*
+  * Gets all the states for a day
+  * Returns a string list of the current states
+  */
   getState(daymoment: moment_.Moment): string[] {
 
     var output: string[] = [];

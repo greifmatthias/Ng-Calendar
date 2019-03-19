@@ -1,0 +1,12 @@
+<div id="dContainer" class="width-full">
+
+    <div id="dMonth" class="width-full">
+        <mg-monthview [moment]="moment" (onSelectionChanged)="onChangeSelection($event)" [selection]="selection">
+        </mg-monthview>
+    </div>
+
+    <div id="dNavigation" class="width-full row content-centered">
+        <mg-navview [moment]="moment" (onNavigate)="onNavigated($event)"></mg-navview>
+    </div>
+
+</div>
