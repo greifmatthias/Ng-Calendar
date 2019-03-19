@@ -6,11 +6,9 @@ const moment = moment_;
 
 @Component({
   selector: 'mg-calendar',
-  template: `<mg-monthview
-              [moment]="moment"
-              (onSelectionChanged)="onChangeSelection($event)">
-            </mg-monthview>`,
-  styles: [
+  templateUrl: './calendar.component.html',
+  styleUrls: [
+    './calendar.component.css',
     './assets/main.css'
   ]
 })
@@ -18,8 +16,11 @@ export class CalendarComponent implements OnInit {
 
   // Api
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
+  @Output() onNavigation = new EventEmitter<any>();
 
   @Input() moment: moment_.Moment;
+
+  selection : moment_.Moment[];
 
   constructor() { }
 
