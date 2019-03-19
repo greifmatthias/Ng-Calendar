@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Moment } from 'moment';
 import { CalendarComponent } from 'calendar';
+
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'lc-root',
@@ -22,8 +24,17 @@ export class AppComponent implements OnInit {
     console.log(event.length);
   }
 
+  onNavigated(event : any){
+    //console.log(event);
+  }
+
   // Trigger today selection of calendar
   doSelectToday(){
     this.calendar.doSelectToday();
+  }
+
+  // Returns the moment for today
+  getToday() : Moment{
+    return moment();
   }
 }

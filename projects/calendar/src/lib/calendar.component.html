@@ -1,12 +1,11 @@
 <div id="dContainer" class="width-full">
 
-    <div id="dMonth" class="width-full">
-        <mg-monthview [moment]="moment" (onSelectionChanged)="onChangeSelection($event)" [selection]="selection">
+    <div id="dMonth" [class.fullheight]="!shownavigator" class="width-full">
+        <mg-monthview [moment]="_moment" (onSelectionChanged)="onChangeSelection($event)" [selection]="selection">
         </mg-monthview>
     </div>
 
-    <div id="dNavigation" class="width-full row content-centered">
-        <mg-navview [moment]="moment" (onNavigate)="onNavigated($event)"></mg-navview>
+    <div *ngIf="shownavigator" id="dNavigation" class="width-full row content-centered">
+        <mg-navview [moment]="_moment" (onNavigate)="onNavigated($event)"></mg-navview>
     </div>
-
 </div>

@@ -55,7 +55,11 @@ export class NavviewComponent implements OnInit {
   */
   getMonth() {
 
-    return moment().year(this.moment.clone().year()).month(this.moment.clone().month()).format('MMMM');
+    if (this.moment !== undefined) {
+      return this.moment.clone().format('MMMM');
+    }
+
+    return '';
   }
 
 }

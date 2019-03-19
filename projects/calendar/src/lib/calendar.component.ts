@@ -18,18 +18,18 @@ export class CalendarComponent implements OnInit {
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
   @Output() onNavigation = new EventEmitter<any>();
 
+  _moment : moment_.Moment;
   @Input() moment: moment_.Moment;
+  @Input() shownavigator: boolean;
 
-  selection : moment_.Moment[];
+  selection: moment_.Moment[];
 
   constructor() { }
 
   ngOnInit() {
 
-    // Check if inital day is requested, else select today
-    if (this.moment === undefined) {
-      this.doSelectToday();
-    }
+    // Set default display if requeste, else on today
+    this._moment = this.moment === undefined ? moment().clone() : this.moment.clone();
 
     this.selection = [];
 
@@ -40,7 +40,7 @@ export class CalendarComponent implements OnInit {
   * Sets local var
   */
   doSelect(moment: moment_.Moment): void {
-    this.moment = moment;
+    this._moment = moment;
   }
 
   /*
@@ -67,10 +67,13 @@ export class CalendarComponent implements OnInit {
   * Triggered on month navigation
   * Emits year and month to parent through onNavigation
   */
-  onNavigated(moment : moment_.Moment){
+  onNavigated(moment: moment_.Moment) {
+
+    this._moment = moment.clone();
+
     this.onNavigation.emit({
-      year: moment.clone().year,
-      month : moment.clone().month
+      year: moment.clone().year(),
+      month: moment.clone().month()
     });
   }
 }

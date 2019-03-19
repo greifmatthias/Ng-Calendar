@@ -3,12 +3,17 @@
   position: relative;
 }
 
+#dNavigation {
+  height: 50px;
+}
+
 #dMonth {
   height: calc(100% - 50px);
   position: absolute;
   margin-top: 50px;
 }
 
-#dNavigation {
-  height: 50px;
+#dMonth.fullheight{
+  height: 100%;
+  margin-top: 0;
 }

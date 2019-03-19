@@ -5,6 +5,6 @@
     </p>
 
     <div id="dCalendar">
-        <mg-calendar #calendar (onSelectionChanged)="doChange($event)"></mg-calendar>
+        <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)" [shownavigator]="true"></mg-calendar>
     </div>
 </div>
