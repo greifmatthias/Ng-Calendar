@@ -58,12 +58,7 @@ export class CalendarComponent implements OnInit {
   */
   onChangeSelection(moments: moment_.Moment[]) {
 
-    moments.forEach(moment => {
-      if(this.selection.filter(day => day.clone().startOf('day').diff(moment.clone().startOf('day'), 'days') === 0).length === 0){
-
-        this.selection.push(moment);
-      }
-    });
+    this.selection = moments;
 
     this.onSelectionChanged.emit(this.selection);
   }
