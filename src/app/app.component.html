@@ -1,2 +1,9 @@
+<div id="dContainer">
 
-<mg-calendar></mg-calendar>
+    <p (click)="doSelectToday()">
+        Select Today
+    </p>
+
+    <mg-calendar #calendar (onSelectionChanged)="doChange($event)"></mg-calendar>
+
+</div>

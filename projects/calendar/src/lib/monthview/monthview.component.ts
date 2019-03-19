@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import * as moment_ from 'moment';
 const moment = moment_;
@@ -14,7 +14,18 @@ const moment = moment_;
 export class MonthviewComponent implements OnInit {
 
   // Api
-  @Input() moment: moment_.Moment;
+  @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
+
+  _moment: moment_.Moment;
+  @Input('moment')
+  set moment(value: moment_.Moment) {
+
+    this._moment = value;
+
+    this.selection = [
+      value
+    ];
+  }
 
   // Data
   selection: moment_.Moment[];
@@ -100,6 +111,8 @@ export class MonthviewComponent implements OnInit {
         this.selection = [];
       }
     }
+
+    this.onSelectionChanged.emit(this.selection);
   }
 
 
@@ -130,9 +143,9 @@ export class MonthviewComponent implements OnInit {
     // Fill output with days of month
     // Starting with dayofyear of begin of month
     // ending with dayofyear of end of month
-    for (var i = this.moment.clone().startOf('month').dayOfYear(); i <= this.moment.clone().endOf('month').dayOfYear(); i++) {
+    for (var i = this._moment.clone().startOf('month').dayOfYear(); i <= this._moment.clone().endOf('month').dayOfYear(); i++) {
 
-      output.push(this.moment.clone().dayOfYear(i));
+      output.push(this._moment.clone().dayOfYear(i));
     }
 
     return output;
@@ -154,10 +167,10 @@ export class MonthviewComponent implements OnInit {
     // Fill output with days of previous month
     // Starting at 0
     // Ending on the beginning of the first week
-    for (var i = 0; i < this.moment.clone().startOf('month').day() - 1; i++) {
+    for (var i = 0; i < this._moment.clone().startOf('month').day() - 1; i++) {
 
       output.push(
-        moment().clone().year(this.moment.year()).month(this.moment.month() - 1).endOf('month').date(moment().clone().year(this.moment.year()).month(this.moment.month() - 1).endOf('month').date() - i));
+        this._moment.clone().subtract(1, 'months').endOf('month').date(this._moment.clone().subtract(1, 'months').endOf('month').date() - i));
     }
 
     return output.reverse();
@@ -182,7 +195,7 @@ export class MonthviewComponent implements OnInit {
     for (var i = 0; i < (this.calcRows() * 7) - (this.calcPre().length + this.calcDays().length); i++) {
 
       output.push(
-        this.moment.clone().endOf('month').add(i + 1, 'days'));
+        this._moment.clone().endOf('month').add(i + 1, 'days'));
     }
 
     return output;
@@ -195,7 +208,7 @@ export class MonthviewComponent implements OnInit {
   calcRows(): number {
 
     // Recalc UI
-    if (this.calcPre().length > 35 - moment().clone().year(this.moment.year()).month(this.moment.month()).daysInMonth()) {
+    if (this.calcPre().length > 35 - this._moment.clone().daysInMonth()) {
 
       return 6;
     }
@@ -216,14 +229,14 @@ export class MonthviewComponent implements OnInit {
     }
 
     // Check if multiple days are selected
-    if(this.isSelected(daymoment) && this.selection.length > 1){
+    if (this.isSelected(daymoment) && this.selection.length > 1) {
 
       output.push('ismultiselected');
     }
 
     // Check if today
-    if(moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0){
-      
+    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0) {
+
       output.push('istoday');
     }
 
