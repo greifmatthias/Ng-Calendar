@@ -1,15 +1,24 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Moment } from 'moment';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { CalendarComponent } from 'calendar';
+
+import * as moment from 'moment';
+import { Moment } from 'moment';
 
 @Component({
   selector: 'lc-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [
+    '../assets/styles/main.css',
+    './app.component.css'
+  ]
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('calendar') calendar : CalendarComponent;
+  @ViewChild('calendar') calendar: CalendarComponent;
+
+  template_month_context: any = {
+    preset: 'Current selected month'
+  };
 
   constructor() { }
 
@@ -18,12 +27,35 @@ export class AppComponent implements OnInit {
   }
 
   // Get onselectionchange event from calendar
-  doChange(event : Moment[]){
+  doChange(event: Moment[]) {
     console.log(event.length);
   }
 
+  onNavigated(event: any) {
+    //console.log(event);
+  }
+
   // Trigger today selection of calendar
-  doSelectToday(){
+  doSelectToday() {
     this.calendar.doSelectToday();
+  }
+
+  // Returns the moment for today
+  getToday(): Moment {
+    return moment();
+  }
+
+  getMonth() {
+    return moment().format('MMMM');
+  }
+
+  // MANIPULATION
+
+  /*
+  * Gets the readable month string of a given month
+  * Returns month name
+  */
+  getMonthName(month: number) {
+    return moment().clone().month(month).format('MMMM');
   }
 }
