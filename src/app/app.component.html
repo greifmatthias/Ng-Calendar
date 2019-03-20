@@ -4,10 +4,17 @@
         Select Today
     </p>
 
-    <div id="dCalendar">
-        <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
-            [shownavigator]="true" [template_prev]="calendarPrev" [template_next]="calendarNext"
-            [template_month]="calendarMonth" [template_month_context]="template_month_context"></mg-calendar>
+    <div class="row content-centered">
+        <div id="dCalendar" class="margin-normal">
+            <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
+                [shownavigator]="true" [template_prev]="calendarPrev" [template_next]="calendarNext"
+                [template_month]="calendarMonth" [template_month_context]="template_month_context"></mg-calendar>
+        </div>
+
+        <div id="dCalendar_default" class="margin-normal">
+            <mg-calendar #calendar2 [shownavigator]="true" (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)">
+            </mg-calendar>
+        </div>
     </div>
 </div>
 
@@ -15,19 +22,15 @@
 
 <!-- TEMPLATING -->
 <ng-template #calendarPrev>
-    <div>
-        PREV
-    </div>
+    <img id="imgPrev" src="../assets/icons/round-thumb_up_alt-24px.svg" class="padding-thin">
 </ng-template>
 
 <ng-template #calendarNext>
-    <div>
-        NEXT
-    </div>
+    <img id="imgNext" src="../assets/icons/round-thumb_down_alt-24px.svg" class="padding-small">
 </ng-template>
 
-<ng-template let-month="month" #calendarMonth>
-    <div>
-        {{ getMonthName(month) }}
+<ng-template let-month="month" let-preset="preset" #calendarMonth>
+    <div class="padding-small">
+        {{ preset }} > {{ getMonthName(month) }}
     </div>
 </ng-template>
