@@ -1,4 +1,4 @@
-<div id="dContainer" class="width-full">
+<div #dCalendar id="dContainer" class="width-full">
 
     <div id="dMonth" [class.fullheight]="!shownavigator" class="width-full">
         <mg-monthview [moment]="_moment" (onSelectionChanged)="onChangeSelection($event)" [selection]="selection">
@@ -6,6 +6,7 @@
     </div>
 
     <div *ngIf="shownavigator" id="dNavigation" class="width-full row content-centered">
-        <mg-navview [moment]="_moment" (onNavigate)="onNavigated($event)"></mg-navview>
+        <mg-navview [moment]="_moment" (onNavigate)="onNavigated($event)"
+            [template_prev]="template_prev" [template_month]="template_month" [template_month_context]="template_month_context" [template_next]="template_next"></mg-navview>
     </div>
 </div>

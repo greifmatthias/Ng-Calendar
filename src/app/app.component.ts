@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
 import { CalendarComponent } from 'calendar';
 
 import * as moment from 'moment';
@@ -12,6 +12,10 @@ import { Moment } from 'moment';
 export class AppComponent implements OnInit {
 
   @ViewChild('calendar') calendar : CalendarComponent;
+
+  template_month_context : any = {
+    month : 'Maand'
+  };
 
   constructor() { }
 
@@ -36,5 +40,19 @@ export class AppComponent implements OnInit {
   // Returns the moment for today
   getToday() : Moment{
     return moment();
+  }
+
+  getMonth(){
+    return moment().format('MMMM');
+  }
+
+  // MANIPULATION
+
+  /*
+  * Gets the readable month string of a given month
+  * Returns month name
+  */
+  getMonthName(month : number){
+    return moment().clone().month(month).format('MMMM');
   }
 }

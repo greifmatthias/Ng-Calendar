@@ -5,6 +5,29 @@
     </p>
 
     <div id="dCalendar">
-        <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)" [shownavigator]="true"></mg-calendar>
+        <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
+            [shownavigator]="true" [template_prev]="calendarPrev" [template_next]="calendarNext"
+            [template_month]="calendarMonth" [template_month_context]="template_month_context"></mg-calendar>
     </div>
 </div>
+
+
+
+<!-- TEMPLATING -->
+<ng-template #calendarPrev>
+    <div>
+        PREV
+    </div>
+</ng-template>
+
+<ng-template #calendarNext>
+    <div>
+        NEXT
+    </div>
+</ng-template>
+
+<ng-template let-month="month" #calendarMonth>
+    <div>
+        {{ getMonthName(month) }}
+    </div>
+</ng-template>
