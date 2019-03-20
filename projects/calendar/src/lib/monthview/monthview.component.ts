@@ -19,6 +19,11 @@ export class MonthviewComponent implements OnInit {
   @Input() moment: moment_.Moment;
   @Input() selection: moment_.Moment[];
 
+  // Styling
+  // Colors
+  @Input() backgroundcolorMonth : string;
+  @Input() backgroundcolorWeek : string;
+
   constructor() {
 
   }
