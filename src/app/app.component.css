@@ -7,7 +7,8 @@
 
 
 #dCalendar,
-#dCalendar_default {
+#dCalendar_default,
+#dCalendar_holiday {
     height: 70vh;
     width: 80vh;
     background-color: #FFFFFF;
@@ -51,4 +52,8 @@
     position: relative;
     background-color: rgba(0, 0, 0, .15);
     padding: 20px;
+}
+
+.isselected{
+    background-color: green;
 }

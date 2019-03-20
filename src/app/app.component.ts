@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
   * Gets the day of the month for a moment
   * Returns number
   */
-  getDate(moment : Moment){
+  getDate(moment: Moment) {
     return moment.clone().date();
   }
 
@@ -71,11 +71,15 @@ export class AppComponent implements OnInit {
   * Gets a type for a moment
   * Returns a string
   */
- getType(moment: Moment){
-   if(moment.clone().date() == 20){
-     return 'birthday';
-   }
+  getType(moment: Moment) {
+    if (moment.clone().date() == 20) {
+      return 'birthday';
+    }
 
-   return 'standaard dagje';
- }
+    return 'standaard dagje';
+  }
+
+  isSelected(states: string[]) {
+    return states.includes('isselected');
+  }
 }
