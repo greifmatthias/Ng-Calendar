@@ -8,7 +8,8 @@
         <div id="dCalendar" class="margin-normal">
             <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
                 [shownavigator]="true" [template_prev]="calendarPrev" [template_next]="calendarNext"
-                [template_month]="calendarMonth" [template_month_context]="template_month_context"></mg-calendar>
+                [template_month]="calendarMonth" [template_month_context]="template_month_context"
+                [color_monthview]="'#ee0290'" [color_weekstrip]="'#ba00e5'" [color_navigation]="'#d2c2fd'"></mg-calendar>
         </div>
 
         <div id="dCalendar_default" class="margin-normal">
