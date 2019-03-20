@@ -66,4 +66,16 @@ export class AppComponent implements OnInit {
   getDate(moment : Moment){
     return moment.clone().date();
   }
+
+  /*
+  * Gets a type for a moment
+  * Returns a string
+  */
+ getType(moment: Moment){
+   if(moment.clone().date() == 20){
+     return 'birthday';
+   }
+
+   return 'standaard dagje';
+ }
 }
