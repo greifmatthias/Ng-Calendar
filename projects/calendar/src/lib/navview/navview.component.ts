@@ -4,7 +4,7 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 @Component({
-  selector: 'mg-navview',
+  selector: '[mg-navview]',
   templateUrl: './navview.component.html',
   styleUrls: [
     './navview.component.css',

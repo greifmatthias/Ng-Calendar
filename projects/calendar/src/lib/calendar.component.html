@@ -5,8 +5,8 @@
         </mg-monthview>
     </div>
 
-    <div *ngIf="shownavigator" id="dNavigation" class="width-full row content-centered">
-        <mg-navview [moment]="_moment" (onNavigate)="onNavigated($event)"
-            [template_prev]="template_prev" [template_month]="template_month" [template_month_context]="template_month_context" [template_next]="template_next"></mg-navview>
+    <div mg-navview *ngIf="shownavigator" id="dNavigation" class="width-full row content-centered" [moment]="_moment"
+        (onNavigate)="onNavigated($event)" [template_prev]="template_prev" [template_month]="template_month"
+        [template_month_context]="template_month_context" [template_next]="template_next">
     </div>
 </div>
