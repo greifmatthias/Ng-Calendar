@@ -70,11 +70,7 @@ export class NavviewComponent implements OnInit {
 
   getMonth_context(): any {
 
-    var output = Object.assign({}, this.template_month_context, { month: this.moment.clone().month() });
-
-    console.log(output);
-
-    return output;
+    return Object.assign({}, this.template_month_context, { month: this.moment.clone().month() });
   }
 
 }
