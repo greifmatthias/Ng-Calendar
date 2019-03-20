@@ -14,35 +14,38 @@ const moment = moment_;
 })
 export class CalendarComponent implements OnInit {
 
-  @ViewChild('dCalendar') calendar : ElementRef;
+  @ViewChild('dCalendar') calendar: ElementRef;
 
   // Api
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
   @Output() onNavigation = new EventEmitter<any>();
 
-  _moment : moment_.Moment;
+  _moment: moment_.Moment;
   @Input() moment: moment_.Moment;
 
   // Styling
   // Layout
   @Input() shownavigator: boolean;
   // Colors
-  @Input() color_navigation : string;
-  @Input() color_weekstrip : string;
-  @Input() color_monthview : string;
+  @Input() color_navigation: string;
+  @Input() color_weekstrip: string;
+  @Input() color_monthview: string;
 
 
   // Templating
-  @Input() template_current : TemplateRef<any>;
-  @Input() template_current_context : any;
+  @Input() template_monthcurrent: TemplateRef<any>;
+  @Input() template_monthnext: TemplateRef<any>;
+  @Input() template_monthprev: TemplateRef<any>;
 
-  @Input() template_prev : TemplateRef<any>;
-  @Input() template_next : TemplateRef<any>;
-  
-  @Input() template_month : TemplateRef<any>;
-  @Input() template_month_context : any;
+  @Input() template_currentday : TemplateRef<any>;
 
-  @Input() data_day : any[];
+  @Input() template_prev: TemplateRef<any>;
+  @Input() template_next: TemplateRef<any>;
+
+  @Input() template_month: TemplateRef<any>;
+  @Input() template_month_context: any;
+
+  @Input() data_day: any[];
 
   selection: moment_.Moment[];
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 import * as moment_ from 'moment';
 const moment = moment_;
@@ -18,6 +18,13 @@ export class MonthviewComponent implements OnInit {
 
   @Input() moment: moment_.Moment;
   @Input() selection: moment_.Moment[];
+
+  // Templating
+  @Input() template_current : TemplateRef<any>;
+  @Input() template_next : TemplateRef<any>;
+  @Input() template_prev : TemplateRef<any>;
+
+  @Input() template_currentday : TemplateRef<any>;
 
   // Styling
   // Colors

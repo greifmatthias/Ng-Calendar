@@ -16,10 +16,10 @@ export class DayviewComponent implements OnInit {
   @Output() onSelect = new EventEmitter<any>();
 
   @Input() moment: moment_.Moment;
-  @Input() states : string[];
+  @Input() states: string[];
 
-  @Input() template : TemplateRef<any>;
-  @Input() context : any;
+  @Input() template: TemplateRef<any>;
+  @Input() template_currentday: TemplateRef<any>;
 
   constructor() { }
 
@@ -47,13 +47,21 @@ export class DayviewComponent implements OnInit {
   * Gets a string list of all the assigned states
   * Returns a space separated string
   */
-  getStates() : string{
+  getStates(): string {
     return this.states.join(' ');
   }
 
   getContext(): any {
 
-    return Object.assign({}, this.context, { moment: this.moment.clone() });
-    
+    return Object.assign({}, { moment: this.moment.clone() });
+
+  }
+
+  /*
+  * Check if representing day is today
+  * Returns boolean, true if today
+  */
+  isToday(): boolean {
+    return this.states.includes('istoday');
   }
 }
