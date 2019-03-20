@@ -6,16 +6,12 @@
 
     <div class="row content-centered">
         <div id="dCalendar" class="margin-normal">
-            <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)" 
-                
-                [template_prev]="calendarPrev" [template_next]="calendarNext"
-                
-                [template_month]="calendarMonth" [template_month_context]="template_month_context"
-                
-                [template_current]="calendarCurrent"
-
-                [shownavigator]="true"
-                [color_monthview]="'#ee0290'" [color_weekstrip]="'#ba00e5'" [color_navigation]="'#d2c2fd'">
+            <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
+                [template_prev]="calendarPrev" [template_next]="calendarNext" [template_month]="calendarMonth"
+                [template_month_context]="template_month_context" [template_monthcurrent]="calendarMonthCurrent"
+                [template_monthprev]="calendarMonthPrev" [template_monthnext]="calendarMonthNext" [template_currentday]="calendarCurrent"
+                [shownavigator]="true" [color_monthview]="'#ee0290'" [color_weekstrip]="'#ba00e5'"
+                [color_navigation]="'#d2c2fd'">
             </mg-calendar>
         </div>
 
@@ -30,6 +26,7 @@
 
 
 <!-- TEMPLATING -->
+<!-- NAVIGATION -->
 <ng-template #calendarPrev>
     <img id="imgPrev" src="../assets/icons/round-thumb_up_alt-24px.svg" class="padding-thin">
 </ng-template>
@@ -44,10 +41,46 @@
     </div>
 </ng-template>
 
-<ng-template let-moment="moment" #calendarCurrent>
-    <div>
+<!-- DAYS -->
+<ng-template let-moment="moment" #calendarMonthCurrent>
+    <div class="templateday">
         <p>
-            Today ({{ getDate(moment) }})
+            ({{ getDate(moment) }})
+        </p>
+
+        <p>
+            {{ getType(moment) }}
         </p>
     </div>
+</ng-template>
+
+<ng-template let-moment="moment" #calendarMonthNext>
+    <div class="templateday_next">
+        <p>
+            ({{ getDate(moment) }})
+        </p>
+
+        <p>
+            {{ getType(moment) }}
+        </p>
+    </div>
+</ng-template>
+
+
+<ng-template let-moment="moment" #calendarMonthPrev>
+    <div class="templateday_prev">
+        <p>
+            ({{ getDate(moment) }})
+        </p>
+
+        <p>
+            {{ getType(moment) }}
+        </p>
+    </div>
+</ng-template>
+
+<ng-template let-moment="moment" #calendarCurrent>
+    <p class="currentday">
+        The current day
+    </p>
 </ng-template>
