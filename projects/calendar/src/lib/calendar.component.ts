@@ -22,7 +22,15 @@ export class CalendarComponent implements OnInit {
 
   _moment : moment_.Moment;
   @Input() moment: moment_.Moment;
+
+  // Styling
+  // Layout
   @Input() shownavigator: boolean;
+  // Colors
+  @Input() color_navigation : string;
+  @Input() color_weekstrip : string;
+  @Input() color_monthview : string;
+
 
   // Templating
   @Input() template_day : TemplateRef<any>;
