@@ -58,4 +58,12 @@ export class AppComponent implements OnInit {
   getMonthName(month: number) {
     return moment().clone().month(month).format('MMMM');
   }
+
+  /*
+  * Gets the day of the month for a moment
+  * Returns number
+  */
+  getDate(moment : Moment){
+    return moment.clone().date();
+  }
 }
