@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 import * as moment_ from 'moment';
 const moment = moment_;
@@ -17,6 +17,9 @@ export class DayviewComponent implements OnInit {
 
   @Input() moment: moment_.Moment;
   @Input() states : string[];
+
+  @Input() template : TemplateRef<any>;
+  @Input() context : any;
 
   constructor() { }
 
@@ -46,5 +49,11 @@ export class DayviewComponent implements OnInit {
   */
   getStates() : string{
     return this.states.join(' ');
+  }
+
+  getContext(): any {
+
+    return Object.assign({}, this.context, { moment: this.moment.clone() });
+    
   }
 }

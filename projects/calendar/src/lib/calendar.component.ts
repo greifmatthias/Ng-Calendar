@@ -33,7 +33,8 @@ export class CalendarComponent implements OnInit {
 
 
   // Templating
-  @Input() template_day : TemplateRef<any>;
+  @Input() template_current : TemplateRef<any>;
+  @Input() template_current_context : any;
 
   @Input() template_prev : TemplateRef<any>;
   @Input() template_next : TemplateRef<any>;

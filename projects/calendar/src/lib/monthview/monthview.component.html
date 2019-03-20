@@ -10,7 +10,7 @@
 
         <mg-dayview *ngFor="let day of calcPre()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day pre"></mg-dayview>
 
-        <mg-dayview *ngFor="let day of calcDays()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day current"></mg-dayview>
+        <mg-dayview *ngFor="let day of calcDays()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day current" [template]="template_current"></mg-dayview>
 
         <mg-dayview *ngFor="let day of calcPost()" [moment]="day" [states]="getState(day)" (onSelect)="doSelect(day, $event)" class="day post"></mg-dayview>
     </div>

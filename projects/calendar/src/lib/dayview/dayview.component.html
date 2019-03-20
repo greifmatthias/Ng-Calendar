@@ -1,5 +1,12 @@
 <div id="dContainer" (click)="doSelect($event)" class="{{ getStates() }}">
+
+  <ng-container *ngIf="template; else defaultDay">
+    <ng-container *ngTemplateOutlet="template; context: getContext()"></ng-container>
+  </ng-container>
+</div>
+
+<ng-template #defaultDay>
   <p class="date padding-small">
     {{ getDate() }}
   </p>
-</div>
+</ng-template>
