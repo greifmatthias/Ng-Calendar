@@ -87,18 +87,6 @@ export class AppComponent implements OnInit {
     return '';
   }
 
-  /*
-  * Gets a type for a moment
-  * Returns a string
-  */
-  getType(moment: moment.Moment) {
-    if (moment.clone().date() == 20) {
-      return 'birthday';
-    }
-
-    return 'standaard dagje';
-  }
-
   isSelected(states: string[]) : boolean {
     return states.includes('isselected');
   }
