@@ -6,7 +6,7 @@
     </ng-container>
   </div>
 
-  <div id="dNavigation" class="row content-centered">
+  <div *ngIf="showNavigator()" id="dNavigation" class="row content-centered">
     <div (click)="doPrev()">
       <ng-container *ngTemplateOutlet="template_prev ? template_prev : defaultPrev"></ng-container>
     </div>

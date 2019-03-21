@@ -1,16 +1,15 @@
-<div #dCalendar id="dContainer" class="width-full">
+<div #dCalendar id="dContainer" class="width-full column">
 
-    <div id="dMonth" [class.fullheight]="!shownavigator" class="width-full">
-        <mg-monthview [moment]="_moment" (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
-            [template_current]="template_monthcurrent" [template_next]="template_monthnext"
-            [template_prev]="template_monthprev" [template_currentday]="template_currentday" [backgroundcolorMonth]="color_monthview"
-            [backgroundcolorWeek]="color_weekstrip">
-        </mg-monthview>
-    </div>
-
-    <div mg-navview *ngIf="shownavigator" id="dNavigation" class="width-full row content-centered" [moment]="_moment"
+    <div mg-navview *ngIf="showTopstrip()" id="dNavigation" class="width-full row content-centered" [moment]="_moment"
         (onNavigate)="onNavigated($event)" [template_prev]="template_prev" [template_next]="template_next"
         [template_month]="template_month" [template_month_context]="template_month_context"
-        [style.backgroundColor]="color_navigation">
+        [show_navigator]="showNavigator()" [style.backgroundColor]="color_navigation">
+    </div>
+
+    <div mg-monthview id="dMonth" [class.fullheight]="!showTopstrip()" class="width-full" [moment]="_moment"
+        (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
+        [template_current]="template_monthcurrent" [template_next]="template_monthnext"
+        [template_prev]="template_monthprev" [template_currentday]="template_currentday"
+        [backgroundcolorMonth]="color_monthview" [backgroundcolorWeek]="color_weekstrip">
     </div>
 </div>

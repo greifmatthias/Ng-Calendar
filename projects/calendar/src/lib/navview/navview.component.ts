@@ -18,6 +18,9 @@ export class NavviewComponent implements OnInit {
 
   @Input() moment: moment_.Moment;
 
+  // Layout
+  @Input() show_navigator: boolean;
+
   // Templating
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
@@ -27,6 +30,17 @@ export class NavviewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
+
+  // ************ LAYOUT
+
+  /*
+  * Navigator needs to be displayed
+  * Returns boolean
+  */
+  showNavigator(): boolean {
+
+    return this.show_navigator !== undefined ? this.show_navigator : true;
+  }
 
   // ************ HANDLING
 

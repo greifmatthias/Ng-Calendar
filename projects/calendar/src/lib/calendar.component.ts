@@ -25,7 +25,8 @@ export class CalendarComponent implements OnInit {
 
   // Styling
   // Layout
-  @Input() shownavigator: boolean;
+  @Input() show_topstrip : boolean;
+  @Input() show_navigator: boolean;
   // Colors
   @Input() color_navigation: string;
   @Input() color_weekstrip: string;
@@ -37,7 +38,7 @@ export class CalendarComponent implements OnInit {
   @Input() template_monthnext: TemplateRef<any>;
   @Input() template_monthprev: TemplateRef<any>;
 
-  @Input() template_currentday : TemplateRef<any>;
+  @Input() template_currentday: TemplateRef<any>;
 
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
@@ -61,6 +62,16 @@ export class CalendarComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log(this.calendar.nativeElement.offsetWidth);
+  }
+
+  showTopstrip(): boolean {
+
+    return this.show_topstrip !== undefined ? this.show_topstrip : true;
+  }
+
+  showNavigator() : boolean{
+
+    return this.show_navigator !== undefined ? this.show_navigator : true;
   }
 
   /*
