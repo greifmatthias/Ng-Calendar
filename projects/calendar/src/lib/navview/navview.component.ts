@@ -24,8 +24,7 @@ export class NavviewComponent implements OnInit {
   // Templating
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
-  @Input() template_month: TemplateRef<any>;
-  @Input() template_month_context: any;
+  @Input() template_title: TemplateRef<any>;
 
   constructor() { }
 
@@ -84,7 +83,7 @@ export class NavviewComponent implements OnInit {
 
   getMonth_context(): any {
 
-    return Object.assign({}, this.template_month_context, { month: this.moment.clone().month() });
+    return Object.assign({}, { month: this.moment.clone().month(), year : this.moment.clone().year() });
   }
 
 }

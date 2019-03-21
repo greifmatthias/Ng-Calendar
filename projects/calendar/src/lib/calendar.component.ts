@@ -28,10 +28,9 @@ export class CalendarComponent implements OnInit {
   @Input() show_topstrip : boolean;
   @Input() show_navigator: boolean;
   // Colors
-  @Input() color_navigation: string;
+  @Input() color_topstrip: string;
   @Input() color_weekstrip: string;
   @Input() color_monthview: string;
-
 
   // Templating
   @Input() template_monthcurrent: TemplateRef<any>;
@@ -43,8 +42,7 @@ export class CalendarComponent implements OnInit {
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
 
-  @Input() template_month: TemplateRef<any>;
-  @Input() template_month_context: any;
+  @Input() template_title: TemplateRef<any>;
 
   @Input() data_day: any[];
 

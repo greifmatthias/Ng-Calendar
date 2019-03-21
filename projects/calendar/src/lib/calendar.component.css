@@ -6,7 +6,6 @@
 #dMonth {
   height: 100%;
   position: relative;
-  margin-top: 50px;
 }
 
 #dMonth.fullheight{
