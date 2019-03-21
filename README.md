@@ -46,12 +46,13 @@ Will be available as an NPM-package
 
 ### Templating
 
+#### Days of year
 >You can template the way content looks, just pass the template with its content. You can get information about a day using the `moment` object returned. `moment` is a Moment-object from the [MomentJS-library](https://momentjs.com/).
 >The state of a day (isselected, ismultiselected, istoday) are returned as a string of the states seperated by a space.
 
 * Change the apearance/content of a displayed day in the month, defaults to a default style.
 
->Component.html
+*Component.html*
 ```html
 <mg-calendar [template_monthcurrent]="currentdaystyle"></mg-calendar>
 
@@ -68,7 +69,8 @@ Will be available as an NPM-package
 </ng-template>
 ```
 Where getMonth() and getDate() are own functions:
->Component.ts
+
+*Component.ts*
 ```javascript
 getMonth(moment: moment.Moment) : string {
   return moment.clone().format('MMMM');
@@ -82,6 +84,27 @@ This approach can also be used when templating the days for next month and the p
 ```html
 <mg-calendar [template_monthnext]="nextdaystyle" [template_monthprev]="prevdaystyle"
              [template_currentday]="currentdaystyle"></mg-calendar>
+```
+
+#### Topstrip
+> Template the top strip, this section is divided into 2 parts: the title and the navigation.
+
+*Component.html*
+```html
+<mg-calendar [template_title]="titlestyle"></mg-calendar>
+
+<ng-template let-year="year" let-month="month" #titlestyle>
+    <p>
+        {{ year }} {{ getMonth(month) }}
+    </p>
+</ng-template>
+```
+
+*Component.ts*
+```javascript
+getMonth(month : number) : string {
+  return moment().clone().month(month).format('MMMM');
+}
 ```
 
 ### Todo
