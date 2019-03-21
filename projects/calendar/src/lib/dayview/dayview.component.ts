@@ -53,7 +53,7 @@ export class DayviewComponent implements OnInit {
 
   getContext(): any {
 
-    return Object.assign({}, { moment: this.moment.clone(), states : this.getStates() });
+    return Object.assign({}, { moment: this.moment.clone(), states : this.states });
 
   }
 
