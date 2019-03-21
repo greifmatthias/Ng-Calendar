@@ -1,10 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 import * as moment_ from 'moment';
 const moment = moment_;
 
 @Component({
-  selector: 'mg-navview',
+  selector: '[mg-navview]',
   templateUrl: './navview.component.html',
   styleUrls: [
     './navview.component.css',
@@ -17,6 +17,12 @@ export class NavviewComponent implements OnInit {
   @Output() onNavigate = new EventEmitter<moment_.Moment>();
 
   @Input() moment: moment_.Moment;
+
+  // Templating
+  @Input() template_prev: TemplateRef<any>;
+  @Input() template_next: TemplateRef<any>;
+  @Input() template_month: TemplateRef<any>;
+  @Input() template_month_context: any;
 
   constructor() { }
 
@@ -60,6 +66,11 @@ export class NavviewComponent implements OnInit {
     }
 
     return '';
+  }
+
+  getMonth_context(): any {
+
+    return Object.assign({}, this.template_month_context, { month: this.moment.clone().month() });
   }
 
 }

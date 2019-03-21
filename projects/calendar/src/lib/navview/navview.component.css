@@ -1,0 +1,9 @@
+#dContainer{
+    position: relative;
+}
+
+#dNavigation{
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
