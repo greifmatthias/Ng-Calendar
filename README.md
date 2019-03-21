@@ -1,27 +1,51 @@
-# LibCalendar
+# NgCalendar
+NgCalendar is a simple library for Angular that allows you to render a bare functional calendar.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
+## Functionalities
 
-## Development server
+* Renders calendar
+* Navigate through months
+* Style various components
+* Selection handling/callbacks
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to install
 
-## Code scaffolding
+Currently no clue xd
+Will be available as an NPM-package
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Docs
 
-## Build
+### Layout
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* Show/hide the topstrip, defaults to `true`.
+```html
+<mg-calendar [show_topstrip]="true|false"></mg-calendar>
+```
 
-## Running unit tests
+* Show/hide the 2 navigationbuttons at the top, defaults to `true`.
+```html
+<mg-calendar [show_navigator]="true|false"></mg-calendar>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Colors
 
-## Running end-to-end tests
+* Color for topstrip, defaults to `transparent`.
+```html
+<mg-calendar color_topstrip="red|#FF0000|.."></mg-calendar>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+* Color for the strip displaying the days of a week, defaults to `transparent`.
+```html
+<mg-calendar color_weekstrip="green|#00FF00|.."></mg-calendar>
+```
 
-## Further help
+* Color for the view containing the days of a month, defaults to `transparent`.
+```html
+<mg-calendar color_monthview="blue|#0000FF|.."></mg-calendar>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+### Todo
+* Weekstrip templating
+* Styling on component size
+* Load improvements
