@@ -13,7 +13,7 @@
   <ng-container *ngIf="template_currentday; else defaultCurrent">
 
     <div id="dTemplate">
-      <ng-container *ngTemplateOutlet="template_currentday"></ng-container>
+      <ng-container *ngTemplateOutlet="template_currentday; context: getContext()"></ng-container>
     </div>
     
   </ng-container>

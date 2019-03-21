@@ -4,20 +4,39 @@
         Select Today
     </p>
 
-    <div class="row content-centered">
+    <div class="content-centered">
+
+        <!--<p class="padding-normal">
+            Heulemoal nar de zeik
+        </p>
+
         <div id="dCalendar" class="margin-normal">
             <mg-calendar #calendar (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)"
                 [template_prev]="calendarPrev" [template_next]="calendarNext" [template_month]="calendarMonth"
                 [template_month_context]="template_month_context" [template_monthcurrent]="calendarMonthCurrent"
-                [template_monthprev]="calendarMonthPrev" [template_monthnext]="calendarMonthNext" [template_currentday]="calendarCurrent"
-                [shownavigator]="true" [color_monthview]="'#ee0290'" [color_weekstrip]="'#ba00e5'"
-                [color_navigation]="'#d2c2fd'">
+                [template_monthprev]="calendarMonthPrev" [template_monthnext]="calendarMonthNext"
+                [template_currentday]="calendarCurrent" [shownavigator]="true" [color_monthview]="'#ee0290'"
+                [color_weekstrip]="'#ba00e5'" [color_navigation]="'#d2c2fd'">
             </mg-calendar>
         </div>
 
+        <p class="padding-normal">
+            Default
+        </p>
+
         <div id="dCalendar_default" class="margin-normal">
+            <mg-calendar #calendar2 (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)">
+            </mg-calendar>
+        </div>-->
+
+        <p class="padding-normal">
+            Feestdagenkalender
+        </p>
+
+        <div id="dCalendar_holiday" class="margin-normal">
             <mg-calendar #calendar2 [shownavigator]="true" (onSelectionChanged)="doChange($event)"
-                (onNavigation)="onNavigated($event)">
+                (onNavigation)="onNavigated($event)" [template_monthcurrent]="calendarHolidayDay"
+                [template_monthprev]="calendarHolidayDay" [template_monthnext]="calendarHolidayDay">
             </mg-calendar>
         </div>
     </div>
@@ -42,8 +61,8 @@
 </ng-template>
 
 <!-- DAYS -->
-<ng-template let-moment="moment" #calendarMonthCurrent>
-    <div class="templateday">
+<ng-template let-moment="moment" let-states="states" #calendarMonthCurrent>
+    <div class="templateday" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -54,8 +73,8 @@
     </div>
 </ng-template>
 
-<ng-template let-moment="moment" #calendarMonthNext>
-    <div class="templateday_next">
+<ng-template let-moment="moment" let-states="states" #calendarMonthNext>
+    <div class="templateday_next" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -66,9 +85,8 @@
     </div>
 </ng-template>
 
-
-<ng-template let-moment="moment" #calendarMonthPrev>
-    <div class="templateday_prev">
+<ng-template let-moment="moment" let-states="states" #calendarMonthPrev>
+    <div class="templateday_prev" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -79,8 +97,24 @@
     </div>
 </ng-template>
 
-<ng-template let-moment="moment" #calendarCurrent>
-    <p class="currentday">
+<ng-template let-moment="moment" let-states="states" #calendarCurrent>
+    <p class="currentday" [class.isSelected]="isSelected(states)">
         The current day
     </p>
+</ng-template>
+
+
+
+<!-- HOLIDAY CALENDAR -->
+
+<ng-template let-moment="moment" let-states="states" #calendarHolidayDay>
+    <div class="day {{ printStates(states) }}" [class.isholiday]="getHoliday(moment) !== ''">
+        <p class="pDate padding-small">
+            {{ getDate(moment) }}
+        </p>
+
+        <p *ngIf="getHoliday(moment) !== ''" class="pHoliday padding-thin margin-small nomargin-top nomargin-left">
+            {{ getHoliday(moment) }}
+        </p>
+    </div>
 </ng-template>
