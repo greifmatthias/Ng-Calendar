@@ -107,6 +107,23 @@ getMonth(month : number) : string {
 }
 ```
 
+### Handlers
+
+* onSelectionChanged()
+> Triggered when a new selection of days has made on the calendar. It returns an array of Moment-objects of the new selection.
+
+*Component.html*
+```html
+<mg-calendar (onSelectionChanged)="onSelectionChanged($event)"></mg-calendar>
+```
+
+*Component.ts*
+```javascript
+onSelectionChanged(event: any[]) {
+  console.log(event.length);
+}
+```
+
 ### Todo
 * Weekstrip templating
 * Styling on component size
