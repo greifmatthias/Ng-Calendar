@@ -87,7 +87,7 @@ This approach can also be used when templating the days for next month and the p
 ```
 
 #### Topstrip
-> Template the top strip, this section is divided into 2 parts: the title and the navigation.
+> Template the top strip, this section is divided into 2 parts: the title and the navigation. Template can access `year` and `month` vars of the current view. `month` is a number from 0 - 11, `year` represents the year of the displayed view.
 
 *Component.html*
 ```html
@@ -123,6 +123,8 @@ onSelectionChanged(event: any[]) {
   console.log(event.length);
 }
 ```
+
+*
 
 ### Todo
 * Weekstrip templating
