@@ -4,9 +4,9 @@
         Select Today
     </p>
 
-    <div class="row content-centered">
+    <div class="content-centered">
 
-        <p class="padding-normal">
+        <!--<p class="padding-normal">
             Heulemoal nar de zeik
         </p>
 
@@ -27,7 +27,7 @@
         <div id="dCalendar_default" class="margin-normal">
             <mg-calendar #calendar2 (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)">
             </mg-calendar>
-        </div>
+        </div>-->
 
         <p class="padding-normal">
             Feestdagenkalender
@@ -35,7 +35,8 @@
 
         <div id="dCalendar_holiday" class="margin-normal">
             <mg-calendar #calendar2 [shownavigator]="true" (onSelectionChanged)="doChange($event)"
-                (onNavigation)="onNavigated($event)">
+                (onNavigation)="onNavigated($event)" [template_monthcurrent]="calendarHolidayDay"
+                [template_monthprev]="calendarHolidayDay" [template_monthnext]="calendarHolidayDay">
             </mg-calendar>
         </div>
     </div>
@@ -61,7 +62,7 @@
 
 <!-- DAYS -->
 <ng-template let-moment="moment" let-states="states" #calendarMonthCurrent>
-    <div class="templateday" [class.isselected]="isSelected(states)">
+    <div class="templateday" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -73,7 +74,7 @@
 </ng-template>
 
 <ng-template let-moment="moment" let-states="states" #calendarMonthNext>
-    <div class="templateday_next" [class.isselected]="isSelected(states)">
+    <div class="templateday_next" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -85,7 +86,7 @@
 </ng-template>
 
 <ng-template let-moment="moment" let-states="states" #calendarMonthPrev>
-    <div class="templateday_prev" [class.isselected]="isSelected(states)">
+    <div class="templateday_prev" [class.isSelected]="isSelected(states)">
         <p>
             ({{ getDate(moment) }})
         </p>
@@ -96,9 +97,8 @@
     </div>
 </ng-template>
 
-
 <ng-template let-moment="moment" let-states="states" #calendarCurrent>
-    <p class="currentday" [class.isselected]="isSelected(states)">
+    <p class="currentday" [class.isSelected]="isSelected(states)">
         The current day
     </p>
 </ng-template>
@@ -106,3 +106,15 @@
 
 
 <!-- HOLIDAY CALENDAR -->
+
+<ng-template let-moment="moment" let-states="states" #calendarHolidayDay>
+    <div class="day {{ printStates(states) }}" [class.isholiday]="getHoliday(moment) !== ''">
+        <p class="pDate padding-small">
+            {{ getDate(moment) }}
+        </p>
+
+        <p *ngIf="getHoliday(moment) !== ''" class="pHoliday padding-thin margin-small nomargin-top nomargin-left">
+            {{ getHoliday(moment) }}
+        </p>
+    </div>
+</ng-template>

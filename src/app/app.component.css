@@ -54,6 +54,28 @@
     padding: 20px;
 }
 
-.isselected{
+.isSelected{
     background-color: green;
+}
+
+
+.day{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.isholiday{
+    border: 2px solid #EFEFEF;
+    box-sizing: border-box;
+}
+
+.pHoliday{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #EFEFEF;
+    color: rgba(0, 0, 0, .5);
+    font-size: 12px;
+    border-radius: 8px;
 }
