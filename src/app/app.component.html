@@ -18,7 +18,7 @@
                 [template_currentday]="calendarCurrent" [shownavigator]="true" [color_monthview]="'#ee0290'"
                 [color_weekstrip]="'#ba00e5'" [color_navigation]="'#d2c2fd'">
             </mg-calendar>
-        </div>
+        </div>-->
 
         <p class="padding-normal">
             Default
@@ -27,7 +27,7 @@
         <div id="dCalendar_default" class="margin-normal">
             <mg-calendar #calendar2 (onSelectionChanged)="doChange($event)" (onNavigation)="onNavigated($event)">
             </mg-calendar>
-        </div>-->
+        </div>
 
         <p class="padding-normal">
             Feestdagenkalender
@@ -108,7 +108,7 @@
 <!-- HOLIDAY CALENDAR -->
 
 <ng-template let-moment="moment" let-states="states" #calendarHolidayDay>
-    <div class="day {{ printStates(states) }}" [class.isholiday]="getHoliday(moment) !== ''">
+    <div class="day {{ states }}" [class.isholiday]="getHoliday(moment) !== ''">
         <p class="pDate padding-small">
             {{ getDate(moment) }}
         </p>

@@ -102,9 +102,4 @@ export class AppComponent implements OnInit {
   isSelected(states: string[]) : boolean {
     return states.includes('isselected');
   }
-
-  printStates(states : string[]) : string{
-
-    return states.join(' ');
-  }
 }
