@@ -18,7 +18,7 @@ export class CalendarComponent implements OnInit {
 
   // Api
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
-  @Output() onNavigation = new EventEmitter<any>();
+  @Output() onNavigated = new EventEmitter<any>();
 
   _moment: moment_.Moment;
   @Input() moment: moment_.Moment;
@@ -104,11 +104,11 @@ export class CalendarComponent implements OnInit {
   * Triggered on month navigation
   * Emits year and month to parent through onNavigation
   */
-  onNavigated(moment: moment_.Moment) {
+  onNavigate(moment: moment_.Moment) {
 
     this._moment = moment.clone();
 
-    this.onNavigation.emit({
+    this.onNavigated.emit({
       year: moment.clone().year(),
       month: moment.clone().month()
     });

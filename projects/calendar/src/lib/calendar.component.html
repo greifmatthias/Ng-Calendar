@@ -1,7 +1,7 @@
 <div #dCalendar id="dContainer" class="width-full column">
 
     <div mg-navview *ngIf="showTopstrip()" id="dNavigation" class="width-full row content-centered" [moment]="_moment"
-        (onNavigate)="onNavigated($event)" [template_prev]="template_prev" [template_next]="template_next"
+        (onNavigate)="onNavigate($event)" [template_prev]="template_prev" [template_next]="template_next"
         [template_title]="template_title" [show_navigator]="showNavigator()" [style.background]="color_topstrip">
     </div>
 
