@@ -83,10 +83,9 @@ getDate(moment: moment.Moment) {
   return moment.clone().date();
 }
 ```
-This approach can also be used when templating the days for next month and the previous month, and the current day:
+This approach can also be used when templating the days for next month and the previous month:
 ```html
-<mg-calendar [template_monthnext]="nextdaystyle" [template_monthprev]="prevdaystyle"
-             [template_currentday]="currentdaystyle"></mg-calendar>
+<mg-calendar [template_monthnext]="nextdaystyle" [template_monthprev]="prevdaystyle"></mg-calendar>
 ```
 
 #### Topstrip
