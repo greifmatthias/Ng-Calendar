@@ -51,7 +51,7 @@ Will be available as an NPM-package
 
 #### Days of year
 >You can template the way content looks, just pass the template with its content. You can get information about a day using the `moment` object returned. `moment` is a Moment-object from the [MomentJS-library](https://momentjs.com/).
->The state of a day (isselected, ismultiselected, istoday) are returned as a string of the states seperated by a space.
+>The state of a day (isselected, ismultiselected, istoday, ispast) are returned as a string of the states seperated by a space.
 
 * Change the apearance/content of a displayed day in the month, defaults to a default style.
 
