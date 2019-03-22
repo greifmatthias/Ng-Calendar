@@ -32,13 +32,13 @@ export class AppComponent implements OnInit {
   }
 
   // Get onselectionchange event from calendar
-  doChange(event: any[]) {
+  onSelectionChanged(event: any[]) {
     
-    //console.log(event.length);
+    console.log(event.length);
   }
 
   onNavigated(event: any) {
-    //console.log(event);
+    console.log(event);
   }
 
   // Trigger today selection of calendar
@@ -46,14 +46,7 @@ export class AppComponent implements OnInit {
     this.calendar.doSelectToday();
   }
 
-  // Returns the moment for today
-  getToday(): moment.Moment {
-    return moment();
-  }
 
-  getMonth() {
-    return moment().format('MMMM');
-  }
 
   // MANIPULATION
 
@@ -61,9 +54,17 @@ export class AppComponent implements OnInit {
   * Gets the readable month string of a given month
   * Returns month name
   */
-  getMonthName(month: number) : string {
-    return moment().clone().month(month).format('MMMM');
-  }
+ /*getMonth(moment: moment.Moment) : string {
+    return moment.clone().format('MMMM');
+  }*/
+
+  /*
+  * Gets the readable month string of a given month
+  * Returns month name
+  */
+ getMonth(month : number) : string {
+  return moment().clone().month(month).format('MMMM');
+}
 
   /*
   * Gets the day of the month for a moment

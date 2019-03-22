@@ -28,54 +28,16 @@
     cursor: pointer;
 }
 
-.templateday,
-.templateday_prev,
-.templateday_next {
-    height: 100%;
-    width: 100%;
-    color: yellow;
-    position: relative;
-}
-
-.templateday_prev {
-    background-color: yellow;
-    color: blue;
-}
-
-.templateday_next {
-    background-color: blue;
-}
-
-.currentday {
-    height: 100%;
-    width: 100%;
-    position: relative;
-    background-color: rgba(0, 0, 0, .15);
-    padding: 20px;
-}
-
-.isSelected{
-    background-color: green;
-}
-
-
 .day{
-    width: 100%;
     height: 100%;
-    position: relative;
 }
 
-.isholiday{
-    border: 2px solid #EFEFEF;
-    box-sizing: border-box;
+.isselected{
+    background-color: black;
+    color: yellow;
 }
 
-.pHoliday{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #EFEFEF;
-    color: rgba(0, 0, 0, .5);
-    font-size: 12px;
-    border-radius: 8px;
+.isselected.istoday{
+    background-color: gray;
+    color: yellow;
 }
