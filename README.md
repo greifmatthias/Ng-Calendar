@@ -1,17 +1,20 @@
 # NgCalendar
 NgCalendar is a simple library for Angular that allows you to render a bare functional calendar.
 
-## Functionalities
-
 * Renders calendar
 * Navigate through months
 * Style various components
 * Selection handling/callbacks
 
+***
+
 ## How to install
 
-Currently no clue xd
+Currently no clue xd.
+
 Will be available as an NPM-package
+
+***
 
 ## Docs
 
@@ -139,7 +142,9 @@ onNavigated(event: any) {
 }
 ```
 
-### Todo
+***
+
+### Roadmap
 * Weekstrip templating
 * Styling on component size
 * Load improvements
