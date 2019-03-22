@@ -1,10 +1,23 @@
-# NgCalendar
+# MgCalendar
 NgCalendar is a simple library for Angular that allows you to render a bare functional calendar.
 
 * Renders calendar
 * Navigate through months
 * Style various components
 * Selection handling/callbacks
+
+***
+
+## How to install
+
+`npm install ng-mg-calendar --save`
+
+*  *
+```javascript
+import { MgCalendarModule } from 'ng-mg-calendar';
+
+
+```
 
 ***
 
