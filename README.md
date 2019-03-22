@@ -124,7 +124,20 @@ onSelectionChanged(event: any[]) {
 }
 ```
 
-*
+* onNavigated()
+> Triggered when a navigation in month occured, returns a `month` and `year` navigated to.
+
+*Component.html*
+```html
+<mg-calendar (onNavigated)="onNavigated($event)"></mg-calendar>
+```
+
+*Component.ts*
+```javascript
+onNavigated(event: any) {
+  console.log(event.month);
+}
+```
 
 ### Todo
 * Weekstrip templating
