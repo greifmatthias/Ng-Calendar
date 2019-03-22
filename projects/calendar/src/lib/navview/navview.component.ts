@@ -18,15 +18,28 @@ export class NavviewComponent implements OnInit {
 
   @Input() moment: moment_.Moment;
 
+  // Layout
+  @Input() show_navigator: boolean;
+
   // Templating
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
-  @Input() template_month: TemplateRef<any>;
-  @Input() template_month_context: any;
+  @Input() template_title: TemplateRef<any>;
 
   constructor() { }
 
   ngOnInit() { }
+
+  // ************ LAYOUT
+
+  /*
+  * Navigator needs to be displayed
+  * Returns boolean
+  */
+  showNavigator(): boolean {
+
+    return this.show_navigator !== undefined ? this.show_navigator : true;
+  }
 
   // ************ HANDLING
 
@@ -70,7 +83,7 @@ export class NavviewComponent implements OnInit {
 
   getMonth_context(): any {
 
-    return Object.assign({}, this.template_month_context, { month: this.moment.clone().month() });
+    return Object.assign({}, { month: this.moment.clone().month(), year : this.moment.clone().year() });
   }
 
 }

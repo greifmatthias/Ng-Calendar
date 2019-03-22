@@ -3,14 +3,9 @@
   position: relative;
 }
 
-#dNavigation {
-  height: 50px;
-}
-
 #dMonth {
-  height: calc(100% - 50px);
-  position: absolute;
-  margin-top: 50px;
+  height: 100%;
+  position: relative;
 }
 
 #dMonth.fullheight{

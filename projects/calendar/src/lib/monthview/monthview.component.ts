@@ -4,7 +4,7 @@ import * as moment_ from 'moment';
 const moment = moment_;
 
 @Component({
-  selector: 'mg-monthview',
+  selector: '[mg-monthview]',
   templateUrl: './monthview.component.html',
   styleUrls: [
     './monthview.component.css',

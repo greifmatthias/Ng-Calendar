@@ -18,32 +18,31 @@ export class CalendarComponent implements OnInit {
 
   // Api
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
-  @Output() onNavigation = new EventEmitter<any>();
+  @Output() onNavigated = new EventEmitter<any>();
 
   _moment: moment_.Moment;
   @Input() moment: moment_.Moment;
 
   // Styling
   // Layout
-  @Input() shownavigator: boolean;
+  @Input() show_topstrip : boolean;
+  @Input() show_navigator: boolean;
   // Colors
-  @Input() color_navigation: string;
+  @Input() color_topstrip: string;
   @Input() color_weekstrip: string;
   @Input() color_monthview: string;
-
 
   // Templating
   @Input() template_monthcurrent: TemplateRef<any>;
   @Input() template_monthnext: TemplateRef<any>;
   @Input() template_monthprev: TemplateRef<any>;
 
-  @Input() template_currentday : TemplateRef<any>;
+  @Input() template_currentday: TemplateRef<any>;
 
   @Input() template_prev: TemplateRef<any>;
   @Input() template_next: TemplateRef<any>;
 
-  @Input() template_month: TemplateRef<any>;
-  @Input() template_month_context: any;
+  @Input() template_title: TemplateRef<any>;
 
   @Input() data_day: any[];
 
@@ -61,6 +60,16 @@ export class CalendarComponent implements OnInit {
 
   ngAfterViewInit() {
     console.log(this.calendar.nativeElement.offsetWidth);
+  }
+
+  showTopstrip(): boolean {
+
+    return this.show_topstrip !== undefined ? this.show_topstrip : true;
+  }
+
+  showNavigator() : boolean{
+
+    return this.show_navigator !== undefined ? this.show_navigator : true;
   }
 
   /*
@@ -95,11 +104,11 @@ export class CalendarComponent implements OnInit {
   * Triggered on month navigation
   * Emits year and month to parent through onNavigation
   */
-  onNavigated(moment: moment_.Moment) {
+  onNavigate(moment: moment_.Moment) {
 
     this._moment = moment.clone();
 
-    this.onNavigation.emit({
+    this.onNavigated.emit({
       year: moment.clone().year(),
       month: moment.clone().month()
     });

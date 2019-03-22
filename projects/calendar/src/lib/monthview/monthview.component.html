@@ -1,13 +1,13 @@
 <div id="dContainer">
 
-    <div id="dWeekStrip" class="width-full row content-centered" [style.backgroundColor]="backgroundcolorWeek">
+    <div id="dWeekStrip" class="width-full row content-centered" [style.background]="backgroundcolorWeek">
         <p *ngFor="let weekday of getWeekdays()">
             {{ weekday }}
         </p>
     </div>
 
     <div id="dDays" [class.sixrows]="calcRows() === 6" class="width-full"
-        [style.backgroundColor]="backgroundcolorMonth">
+        [style.background]="backgroundcolorMonth">
 
         <mg-dayview *ngFor="let day of calcPre()" [moment]="day" [states]="getState(day)"
             (onSelect)="doSelect(day, $event)" class="day pre" [template]="template_prev"></mg-dayview>
