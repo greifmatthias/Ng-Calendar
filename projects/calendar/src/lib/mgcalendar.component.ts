@@ -37,10 +37,8 @@ export class CalendarComponent implements OnInit {
   @Input() template_monthnext: TemplateRef<any>;
   @Input() template_monthprev: TemplateRef<any>;
 
-  @Input() template_currentday: TemplateRef<any>;
-
-  @Input() template_prev: TemplateRef<any>;
-  @Input() template_next: TemplateRef<any>;
+  @Input() template_navigationprev: TemplateRef<any>;
+  @Input() template_navigationnext: TemplateRef<any>;
 
   @Input() template_title: TemplateRef<any>;
 

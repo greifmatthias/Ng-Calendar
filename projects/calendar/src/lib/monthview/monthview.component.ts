@@ -24,8 +24,6 @@ export class MonthviewComponent implements OnInit {
   @Input() template_next : TemplateRef<any>;
   @Input() template_prev : TemplateRef<any>;
 
-  @Input() template_currentday : TemplateRef<any>;
-
   // Styling
   // Colors
   @Input() backgroundcolorMonth : string;
@@ -254,7 +252,7 @@ export class MonthviewComponent implements OnInit {
     }
 
     // Check if past
-    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') >= 0) {
+    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') > 0) {
 
       output.push('ispast');
     }

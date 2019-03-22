@@ -1,14 +1,15 @@
 <div #dCalendar id="dContainer" class="mg-width-full mg-column">
 
-    <div mg-navview *ngIf="showTopstrip()" id="dNavigation" class="mg-width-full mg-row mg-content-centered" [moment]="_moment"
-        (onNavigate)="onNavigate($event)" [template_prev]="template_prev" [template_next]="template_next"
-        [template_title]="template_title" [show_navigator]="showNavigator()" [style.background]="color_topstrip">
+    <div mg-navview *ngIf="showTopstrip()" id="dNavigation" class="mg-width-full mg-row mg-content-centered"
+        [moment]="_moment" (onNavigate)="onNavigate($event)" [template_prev]="template_navigationprev"
+        [template_next]="template_navigationnext" [template_title]="template_title" [show_navigator]="showNavigator()"
+        [style.background]="color_topstrip">
     </div>
 
     <div mg-monthview id="dMonth" [class.fullheight]="!showTopstrip()" class="mg-width-full" [moment]="_moment"
         (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
         [template_current]="template_monthcurrent" [template_next]="template_monthnext"
-        [template_prev]="template_monthprev" [template_currentday]="template_currentday"
-        [backgroundcolorMonth]="color_monthview" [backgroundcolorWeek]="color_weekstrip">
+        [template_prev]="template_monthprev" [backgroundcolorMonth]="color_monthview"
+        [backgroundcolorWeek]="color_weekstrip">
     </div>
 </div>

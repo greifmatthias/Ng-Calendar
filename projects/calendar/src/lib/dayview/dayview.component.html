@@ -1,36 +1,14 @@
 <div id="dContainer" (click)="doSelect($event)">
 
-  <ng-container *ngIf="!isToday(); else today">
-
-    <ng-container *ngIf="template; else defaultDay">
-      <ng-container *ngTemplateOutlet="template; context: getContext()"></ng-container>
-    </ng-container>
+  <ng-container *ngIf="template; else defaultDay">
+    <ng-container *ngTemplateOutlet="template; context: getContext()"></ng-container>
   </ng-container>
 </div>
-
-<ng-template #today>
-
-  <ng-container *ngIf="template_currentday; else defaultCurrent">
-
-    <div id="dTemplate">
-      <ng-container *ngTemplateOutlet="template_currentday; context: getContext()"></ng-container>
-    </div>
-    
-  </ng-container>
-</ng-template>
 
 <ng-template #defaultDay>
   <div id="dDay" class="{{ getStates() }}">
     <p class="date mg-padding-small">
       {{ getDate() }}
-    </p>
-  </div>
-</ng-template>
-
-<ng-template #defaultCurrent>
-  <div id="dDay" class="{{ getStates() }}">
-    <p class="date mg-padding-small">
-      ({{ getDate() }})
     </p>
   </div>
 </ng-template>

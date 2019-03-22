@@ -35,6 +35,10 @@
     box-shadow: none;
 }
 
+#dDay.istoday{
+    z-index: 0;
+}
+
 #dDay.istoday:not(.isselected){
     background: rgba(0, 0, 0, 0.05);
 }
