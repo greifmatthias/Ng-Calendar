@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CalendarComponent } from './calendar.component';
+import { CalendarComponent } from './mgcalendar.component';
 import { MonthviewComponent } from './monthview/monthview.component';
 import { DayviewComponent } from './dayview/dayview.component';
 import { NavviewComponent } from './navview/navview.component';
@@ -12,4 +12,4 @@ import { NavviewComponent } from './navview/navview.component';
   ],
   exports: [CalendarComponent]
 })
-export class CalendarModule { }
+export class MgCalendarModule { }

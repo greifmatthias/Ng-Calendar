@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import { CalendarModule } from 'calendar';
+import { MgCalendarModule } from 'calendar';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { CalendarModule } from 'calendar';
   ],
   imports: [
     BrowserModule,
-    CalendarModule
+    MgCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

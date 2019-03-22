@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, TemplateRef } from '@angular/core';
-import { CalendarComponent } from 'calendar';
+import { MgCalendarModule } from 'calendar';
 
 import * as moment from 'moment';
 
@@ -15,7 +15,7 @@ var Holidays = require('date-holidays');
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('calendar') calendar: CalendarComponent;
+  @ViewChild('calendar') calendar: MgCalendarModule;
 
   template_month_context: any = {
     preset: 'Current selected month'
@@ -43,7 +43,7 @@ export class AppComponent implements OnInit {
 
   // Trigger today selection of calendar
   doSelectToday() {
-    this.calendar.doSelectToday();
+    //this.calendar.doSelectToday();
   }
 
 

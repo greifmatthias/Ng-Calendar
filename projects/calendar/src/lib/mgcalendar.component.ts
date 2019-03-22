@@ -6,9 +6,9 @@ const moment = moment_;
 
 @Component({
   selector: 'mg-calendar',
-  templateUrl: './calendar.component.html',
+  templateUrl: './mgcalendar.component.html',
   styleUrls: [
-    './calendar.component.css',
+    './mgcalendar.component.css',
     './assets/main.css'
   ]
 })
