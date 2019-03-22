@@ -253,6 +253,12 @@ export class MonthviewComponent implements OnInit {
       output.push('istoday');
     }
 
+    // Check if past
+    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') >= 0) {
+
+      output.push('ispast');
+    }
+
     return output;
 
   }
