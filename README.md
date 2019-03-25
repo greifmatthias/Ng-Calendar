@@ -10,9 +10,8 @@ NgCalendar is a simple library for Angular that allows you to render a bare func
 
 ## How to install
 
-Currently no clue xd.
-
-Will be available as an NPM-package
+Available as an NPM-package:
+`npm install ng-mg-calendar`
 
 ***
 
