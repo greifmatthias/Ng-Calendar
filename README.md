@@ -19,7 +19,7 @@ Available as an NPM-package:
 
 ### Layout
 
-* Show/hide the topstrip, defaults to `true`.
+* Show/hide the topstrip, defaults to `true`. If `false` will also hide the navigationbuttons in this strip.
 ```html
 <mg-calendar [show_topstrip]="true|false"></mg-calendar>
 ```
