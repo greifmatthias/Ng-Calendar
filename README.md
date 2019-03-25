@@ -110,7 +110,7 @@ getMonth(month : number) : string {
 
 ### Handlers
 
-* onSelectionChanged()
+#### onSelectionChanged()
 > Triggered when a new selection of days has made on the calendar. It returns an array of Moment-objects of the new selection.
 
 *Component.html*
@@ -125,7 +125,7 @@ onSelectionChanged(event: any[]) {
 }
 ```
 
-* onNavigated()
+#### onNavigated()
 > Triggered when a navigation in month occured, returns a `month` and `year` navigated to.
 
 *Component.html*
