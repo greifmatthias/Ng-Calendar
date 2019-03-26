@@ -261,6 +261,14 @@ export class MonthviewComponent implements OnInit {
 
   }
 
+  /*
+  * Gets all the states for a day in a space-seperated string
+  * Returns a string of the current states
+  */
+  getStates(daymoment : moment_.Moment): string{
+    return this.getState(daymoment).join(' ');
+  }
+
   isSelected(daymoment: moment_.Moment): boolean {
 
     return this.selection.filter(day => day.clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0).length > 0;

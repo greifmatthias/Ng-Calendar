@@ -17,7 +17,6 @@
 #dDay.isselected {
     transform: scale(1.1);
     background: linear-gradient(to top, #651FFF, #7C4DFF);
-    z-index: 100;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
@@ -33,10 +32,6 @@
     background: rgb(101, 31, 255) !important;
     border-radius: 0;
     box-shadow: none;
-}
-
-#dDay.istoday{
-    z-index: 0;
 }
 
 #dDay.istoday:not(.isselected){

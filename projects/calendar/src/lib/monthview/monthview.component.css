@@ -38,7 +38,12 @@
     height: calc(100% / 5);
     position: relative;
     float: left;
+    z-index: 0;
     border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.day.isselected{
+    z-index: 100;
 }
 
 .day:hover {

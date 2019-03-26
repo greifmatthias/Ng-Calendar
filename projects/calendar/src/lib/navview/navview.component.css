@@ -1,9 +1,19 @@
-#dContainer{
+#dContainer {
     position: relative;
 }
 
-#dNavigation{
+#dNavigation {
     height: 100%;
     position: relative;
     right: 0;
+}
+
+.navicon {
+    opacity: 0.75;
+    transition: all 0.2s;
+}
+
+.navicon:hover {
+    opacity: 1;
+    cursor: pointer;
 }
