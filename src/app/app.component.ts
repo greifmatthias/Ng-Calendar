@@ -3,8 +3,6 @@ import { MgCalendarModule } from 'calendar';
 
 import * as moment from 'moment';
 
-var Holidays = require('date-holidays');
-
 @Component({
   selector: 'lc-root',
   templateUrl: './app.component.html',
@@ -21,19 +19,13 @@ export class AppComponent implements OnInit {
     preset: 'Current selected month'
   };
 
-  constructor() {
+  constructor() { }
 
-    // Init holidays for region
-    Holidays = new Holidays('BE', 'VLG');
-  }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() { }
 
   // Get onselectionchange event from calendar
   onSelectionChanged(event: any[]) {
-    
+
     console.log(event.length);
   }
 
@@ -46,25 +38,23 @@ export class AppComponent implements OnInit {
     //this.calendar.doSelectToday();
   }
 
-
-
   // MANIPULATION
 
   /*
   * Gets the readable month string of a given month
   * Returns month name
   */
- /*getMonth(moment: moment.Moment) : string {
-    return moment.clone().format('MMMM');
-  }*/
+  /*getMonth(moment: moment.Moment) : string {
+     return moment.clone().format('MMMM');
+   }*/
 
   /*
   * Gets the readable month string of a given month
   * Returns month name
   */
- getMonth(month : number) : string {
-  return moment().clone().month(month).format('MMMM');
-}
+  getMonth(month: number): string {
+    return moment().clone().month(month).format('MMMM');
+  }
 
   /*
   * Gets the day of the month for a moment
@@ -74,21 +64,7 @@ export class AppComponent implements OnInit {
     return moment.clone().date();
   }
 
-  /*
-  * Gets the holiday for a moment
-  * Returns the holiday name if moment is a holiday
-  */
-  getHoliday(moment : moment.Moment){
-
-    if(Holidays.isHoliday(moment.clone().toDate())){
-
-      return Holidays.isHoliday(moment.clone().toDate()).name;
-    }
-
-    return '';
-  }
-
-  isSelected(states: string[]) : boolean {
+  isSelected(states: string[]): boolean {
     return states.includes('isselected');
   }
 }

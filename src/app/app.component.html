@@ -1,3 +1,44 @@
-<div id="dContainer">
-    <mg-calendar (onNavigated)="onNavigated($event)"></mg-calendar>
-</div>
+<div id="dContainer" class="width-full column">
+
+    <mg-calendar [template_monthprev]="othermonth" [template_monthnext]="othermonth" [template_monthcurrent]="thismonth"
+      [template_title]="topstrip" [template_navigationnext]="navigationnext" [template_navigationprev]="navigationprev"
+      (onNavigated)="onNavigated($event)" (onSelectionChanged)="onSelectionChanged($event)"></mg-calendar>
+  
+  </div>
+  
+  <ng-template #othermonth let-moment="moment" let-states="states">
+  
+    <div class="day othermonth {{ states }}">
+  
+      <p class="padding-small">
+        {{ getDate(moment) }}
+      </p>
+  
+    </div>
+  
+  </ng-template>
+  
+  <ng-template #thismonth let-moment="moment" let-states="states">
+  
+    <div class="day thismonth {{ states }} error">
+  
+      <p class="padding-small">
+        {{ getDate(moment) }}
+      </p>
+  
+    </div>
+  
+  </ng-template>
+  
+  <ng-template #navigationnext>
+    <div class="padding-small">
+      <img src="/assets/icons/round-navigate_next.svg" height="30" width="30">
+    </div>
+  </ng-template>
+  
+  <ng-template #navigationprev>
+    <div class="padding-small">
+      <img src="/assets/icons/round-navigate_before.svg" height="30" width="30">
+    </div>
+  </ng-template>
+  

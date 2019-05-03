@@ -1,43 +1,128 @@
 #dContainer {
     width: 100%;
+    height: calc(100% - 56px);
+    position: absolute;
+  }
+  
+  mg-calendar {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  #dNotifications {
+    display: none;
+  }
+  
+  #dStrip>*.visible {
+    display: block;
+  }
+  
+  #dStrip .navigator {
+    width: 500px;
     height: 100%;
     position: absolute;
-    background-color: #FFFFFF;
-}
-
-
-#dCalendar,
-#dCalendar_default,
-#dCalendar_holiday {
-    height: 70vh;
-    width: 80vh;
-    background-color: #FFFFFF;
-    border: 1px solid #EFEFEF;
-    box-shadow: rgba(0, 0, 0, .15) 0 10px 20px;
-}
-
-#imgPrev,
-#imgNext {
-    opacity: 0.5;
-    transition: all 0.2s;
-}
-
-#imgPrev:hover,
-#imgNext:hover {
-    opacity: 0.9;
-    cursor: pointer;
-}
-
-.day{
+    right: 0;
+    top: 0;
+    display: block;
+  }
+  
+  /******************************************/
+  
+  .day {
+    width: 100%;
     height: 100%;
-}
-
-.isselected{
-    background-color: black;
-    color: yellow;
-}
-
-.isselected.istoday{
-    background-color: gray;
-    color: yellow;
-}
+    position: relative;
+    z-index: 99;
+  }
+  
+  .day.ispast>* {
+    opacity: 0.5;
+  }
+  
+  .day p{
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .othermonth.day {
+    background-color: rgba(0, 0, 0, 0.025);
+  }
+  
+  .day.error{
+    background-color: red;
+  }
+  
+  .day.isselected {
+    background: linear-gradient(to top, #651fff, #7c4dff);
+    transform: scale(1.1);
+    border-radius: 8px;
+    color: #FFFFFF;
+    z-index: 100;
+  }
+  
+  .day.ismultiselected {
+    background: #651fff;
+    transform: scale(1);
+    border-radius: 0;
+  }
+  
+  .day.isselected.ispast>* {
+    opacity: 0.8;
+  }
+  
+  .day.istoday:not(.isselected){
+    background-color: #EFEFEF;
+  }
+  
+  .dNotification {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  
+  .dNotification > * {
+    opacity: 0.35;
+  }
+  
+  .dNotification .isrequestedtarget{
+    position: absolute;
+    padding: 5px;
+    bottom: 0;
+    right: 0;
+    border-radius: 50%;
+    transition: all 0.2s;
+    background-color: rgba(101, 31, 255, 0.5);
+    opacity: 1;
+    z-index: 105;
+  }
+  
+  .dNotification .isrequestedtarget:not(.cannotshift):hover{
+    background-color: rgba(101, 31, 255, 1);
+  }
+  
+  .dNotification .isrequestedtarget.cannotshift {
+    opacity: 0.25;
+  }
+  
+  .name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .name .notyou {
+    opacity: 0.5;
+  }
+  
+  .name .reserve {
+    font-size: 11px;
+    font-weight: normal;
+  }
+  
+  .name p {
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
