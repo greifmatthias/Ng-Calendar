@@ -20,14 +20,14 @@ export class MonthviewComponent implements OnInit {
   @Input() selection: moment_.Moment[];
 
   // Templating
-  @Input() template_current : TemplateRef<any>;
-  @Input() template_next : TemplateRef<any>;
-  @Input() template_prev : TemplateRef<any>;
+  @Input() template_current: TemplateRef<any>;
+  @Input() template_next: TemplateRef<any>;
+  @Input() template_prev: TemplateRef<any>;
 
   // Styling
   // Colors
-  @Input() backgroundcolorMonth : string;
-  @Input() backgroundcolorWeek : string;
+  @Input() backgroundcolorMonth: string;
+  @Input() backgroundcolorWeek: string;
 
   constructor() {
 
@@ -167,7 +167,7 @@ export class MonthviewComponent implements OnInit {
       // Fill output with days of previous month
       // Starting at 0
       // Ending on the beginning of the first week
-      for (var i = 0; i < this.moment.clone().startOf('month').day() - 1; i++) {
+      for (var i = 0; i < this.moment.clone().startOf('month').subtract(1, 'days').day(); i++) {
 
         output.push(
           this.moment.clone().subtract(1, 'months').endOf('month').date(this.moment.clone().subtract(1, 'months').endOf('month').date() - i));
@@ -212,7 +212,7 @@ export class MonthviewComponent implements OnInit {
   calcRows(): number {
 
     if (this.moment !== undefined) {
-      
+
       // Recalc UI
       if (this.calcPre().length > 35 - this.moment.clone().daysInMonth()) {
 
@@ -265,7 +265,7 @@ export class MonthviewComponent implements OnInit {
   * Gets all the states for a day in a space-seperated string
   * Returns a string of the current states
   */
-  getStates(daymoment : moment_.Moment): string{
+  getStates(daymoment: moment_.Moment): string {
     return this.getState(daymoment).join(' ');
   }
 

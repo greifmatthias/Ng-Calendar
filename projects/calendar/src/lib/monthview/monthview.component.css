@@ -34,7 +34,7 @@
 }
 
 .day {
-    width: calc(100% / 7);
+    width: calc(calc(100% / 7) - 2px);
     height: calc(100% / 5);
     position: relative;
     float: left;
