@@ -25,7 +25,7 @@ export class CalendarComponent implements OnInit {
 
   // Styling
   // Layout
-  @Input() show_topstrip : boolean;
+  @Input() show_topstrip: boolean;
   @Input() show_navigator: boolean;
   // Colors
   @Input() color_topstrip: string;
@@ -50,14 +50,15 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
 
-    // Set default display if requeste, else on today
+    // Set default display if requested, else on today
     this._moment = this.moment === undefined ? moment().clone() : this.moment.clone();
 
     this.selection = [];
   }
 
   ngAfterViewInit() {
-    console.log(this.calendar.nativeElement.offsetWidth);
+
+    //console.log(this.calendar.nativeElement.offsetWidth);
   }
 
   showTopstrip(): boolean {
@@ -65,7 +66,7 @@ export class CalendarComponent implements OnInit {
     return this.show_topstrip !== undefined ? this.show_topstrip : true;
   }
 
-  showNavigator() : boolean{
+  showNavigator(): boolean {
 
     return this.show_navigator !== undefined ? this.show_navigator : true;
   }
@@ -75,6 +76,7 @@ export class CalendarComponent implements OnInit {
   * Sets local var
   */
   doSelect(moment: moment_.Moment): void {
+    
     this._moment = moment;
   }
 
@@ -93,8 +95,10 @@ export class CalendarComponent implements OnInit {
   */
   onChangeSelection(moments: moment_.Moment[]) {
 
+    // Set
     this.selection = moments;
 
+    // Notify
     this.onSelectionChanged.emit(this.selection);
   }
 
@@ -104,11 +108,13 @@ export class CalendarComponent implements OnInit {
   */
   onNavigate(moment: moment_.Moment) {
 
+    // Set
     this._moment = moment.clone();
 
-    this.onNavigated.emit({
+    // Notify
+    this.onNavigated.emit(Object.assign({}, {
       year: moment.clone().year(),
       month: moment.clone().month()
-    });
+    }));
   }
 }
