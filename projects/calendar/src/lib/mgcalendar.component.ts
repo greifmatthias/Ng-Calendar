@@ -57,7 +57,8 @@ export class CalendarComponent implements OnInit {
   }
 
   ngAfterViewInit() {
-    console.log(this.calendar.nativeElement.offsetWidth);
+    
+    //console.log(this.calendar.nativeElement.offsetWidth);
   }
 
   showTopstrip(): boolean {
