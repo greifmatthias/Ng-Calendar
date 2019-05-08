@@ -49,8 +49,10 @@ export class NavviewComponent implements OnInit {
   */
   doNext() {
 
+    // Navigate to next month
     this.moment.add(1, 'months');
 
+    // Notify
     this.onNavigate.emit(this.moment.clone());
   }
 
@@ -60,8 +62,10 @@ export class NavviewComponent implements OnInit {
   */
   doPrev() {
 
+    // Navigate to previous month
     this.moment.subtract(1, 'months');
 
+    // Notify
     this.onNavigate.emit(this.moment.clone());
   }
 
@@ -72,18 +76,39 @@ export class NavviewComponent implements OnInit {
   * Gets the current month
   * Returns readable string for month
   */
-  getMonth() {
+  getMonth() : string {
 
-    if (this.moment !== undefined) {
+    // ? Check data
+    if (this.moment) {
+
       return this.moment.clone().format('MMMM');
     }
 
     return '';
   }
 
-  getMonth_context(): any {
+  /*
+  * Gets the current year
+  * Returns year as a string
+  */
+  getYear() : string {
 
-    return Object.assign({}, { month: this.moment.clone().month(), year : this.moment.clone().year() });
+    // ? Check data
+    if (this.moment) {
+
+      return this.moment.clone().year().toString();
+    }
+
+    return '';
+  }
+
+  /*
+  * Gets the context of component
+  * Returns Context object
+  */
+  getMonth_context(): { month : number, year : number} {
+
+    return Object.assign({}, { month: this.moment.clone().month(), year: this.moment.clone().year() });
   }
 
 }

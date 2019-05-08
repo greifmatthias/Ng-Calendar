@@ -1,19 +1,22 @@
-#dContainer{
+#dContainer {
     width: 100%;
     height: 100%;
-    position: absolute;
+    display: flex;
+    flex-flow: column;
+    position: relative;
 }
 
 /* Strip for displaying the days of the week */
+
 #dWeekStrip {
     width: 100%;
-    height: 60px;
+    flex: 0 1 60px;
     display: flex;
     flex-direction: row;
-    border: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 0;
     z-index: 99;
     position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 #dWeekStrip>p {
@@ -22,10 +25,12 @@
 }
 
 /* Block where days of month are rendered in */
-#dDays{
+
+#dDays {
     float: left;
     width: 100%;
-    height: calc(100% - 62px);
+    flex: 1 1 auto;
+    position: relative;
     overflow: hidden;
 }
 
@@ -42,7 +47,7 @@
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.day.isselected{
+.day.isselected {
     z-index: 100;
 }
 

@@ -16,7 +16,10 @@ export class DayviewComponent implements OnInit {
   @Output() onSelect = new EventEmitter<any>();
 
   @Input() moment: moment_.Moment;
-  @Input() states: string[];
+
+  // States
+  @Input() isselected: boolean;
+  @Input() ismultiselected: boolean;
 
   @Input() template: TemplateRef<any>;
   @Input() template_currentday: TemplateRef<any>;
@@ -29,6 +32,7 @@ export class DayviewComponent implements OnInit {
   // ************ HANDLING
 
   doSelect(event: any) {
+
     this.onSelect.emit(event);
   }
 
@@ -40,6 +44,7 @@ export class DayviewComponent implements OnInit {
   * Returns a number
   */
   getDate(): number {
+
     return this.moment.date();
   }
 
@@ -48,13 +53,30 @@ export class DayviewComponent implements OnInit {
   * Returns a space separated string
   */
   getStates(): string {
-    return this.states.join(' ');
-  }
 
-  getContext(): any {
+    var states = [];
 
-    return Object.assign({}, { moment: this.moment.clone(), states : this.getStates() });
+    if (this.isselected) {
 
+      states.push('isselected');
+    }
+
+    if (this.ismultiselected) {
+
+      states.push('ismultiselected');
+    }
+
+    if (this.isToday()) {
+
+      states.push('istoday');
+    }
+
+    if (this.isPast()) {
+
+      states.push('ispast');
+    }
+
+    return states.join(' ');
   }
 
   /*
@@ -62,6 +84,25 @@ export class DayviewComponent implements OnInit {
   * Returns boolean, true if today
   */
   isToday(): boolean {
-    return this.states.includes('istoday');
+
+    return moment().clone().startOf('day').diff(this.moment.clone().startOf('day'), 'days') === 0;
+  }
+
+  /*
+    * Check if representing day is in past
+    * Returns boolean
+    */
+  isPast(): boolean {
+
+    return moment().clone().startOf('day').diff(this.moment.clone().startOf('day'), 'days') > 0;
+  }
+
+  /*
+  * Gets the component current context
+  * Returns Context object
+  */
+  getContext(): { moment: moment_.Moment, states: string } {
+
+    return Object.assign({}, { moment: this.moment.clone(), states: this.getStates() });
   }
 }
