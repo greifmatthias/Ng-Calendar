@@ -2,6 +2,7 @@
 
   <div id="dMonth" class="mg-width-full mg-row mg-content-centered">
     <ng-container *ngIf="template_title; else defaultMonth">
+      
       <ng-container *ngTemplateOutlet="template_title; context: getMonth_context()"></ng-container>
     </ng-container>
   </div>
@@ -21,7 +22,7 @@
 <!-- TEMPLATING DEFAULTS -->
 <ng-template #defaultMonth>
   <p class="mg-padding-small">
-    {{ getMonth() }}
+    {{ getMonth() }} {{ getYear() }}
   </p>
 </ng-template>
 

@@ -225,50 +225,6 @@ export class MonthviewComponent implements OnInit {
 
   // ************ MANIPULATION
 
-  /*
-  * Gets all the states for a day
-  * Returns a string list of the current states
-  */
-  getState(daymoment: moment_.Moment): string[] {
-
-    var output: string[] = [];
-
-    // Check if selected
-    if (this.isSelected(daymoment)) {
-
-      output.push('isselected');
-    }
-
-    // Check if multiple days are selected
-    if (this.isSelected(daymoment) && this.selection.length > 1) {
-
-      output.push('ismultiselected');
-    }
-
-    // Check if today
-    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0) {
-
-      output.push('istoday');
-    }
-
-    // Check if past
-    if (moment().clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') > 0) {
-
-      output.push('ispast');
-    }
-
-    return output;
-
-  }
-
-  /*
-  * Gets all the states for a day in a space-seperated string
-  * Returns a string of the current states
-  */
-  getStates(daymoment: moment_.Moment): string {
-    return this.getState(daymoment).join(' ');
-  }
-
   isSelected(daymoment: moment_.Moment): boolean {
 
     return this.selection.filter(day => day.clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0).length > 0;

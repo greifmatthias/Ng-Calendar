@@ -1,14 +1,15 @@
 #dContainer{
+  display: flex;
+  flex-flow: column;
   height: 100%;
   position: relative;
+}
+
+#dNavigation{
+  flex: 0 1 auto;
 }
 
 #dMonth {
-  height: 100%;
+  flex: 1 1 auto;
   position: relative;
-}
-
-#dMonth.fullheight{
-  height: 100%;
-  margin-top: 0;
 }

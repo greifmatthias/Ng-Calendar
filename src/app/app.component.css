@@ -1,6 +1,6 @@
 #dContainer {
     width: 100%;
-    height: calc(100% - 56px);
+    height: 100%;
     position: absolute;
   }
   
@@ -47,10 +47,6 @@
   
   .othermonth.day {
     background-color: rgba(0, 0, 0, 0.025);
-  }
-  
-  .day.error{
-    background-color: red;
   }
   
   .day.isselected {

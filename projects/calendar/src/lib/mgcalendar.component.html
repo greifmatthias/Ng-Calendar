@@ -6,7 +6,7 @@
         [style.background]="color_topstrip">
     </div>
 
-    <div mg-monthview id="dMonth" [class.fullheight]="!showTopstrip()" class="mg-width-full" [moment]="_moment"
+    <div mg-monthview id="dMonth" class="mg-width-full" [moment]="_moment"
         (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
         [template_current]="template_monthcurrent" [template_next]="template_monthnext"
         [template_prev]="template_monthprev" [backgroundcolorMonth]="color_monthview"
