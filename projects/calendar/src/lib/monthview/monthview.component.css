@@ -17,6 +17,7 @@
     z-index: 99;
     position: relative;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
 #dWeekStrip>p {
@@ -39,12 +40,13 @@
 }
 
 .day {
-    width: calc(calc(100% / 7) - 2px);
+    width: calc(100% / 7);
     height: calc(100% / 5);
     position: relative;
     float: left;
     z-index: 0;
     border: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
 }
 
 .day.isselected {
