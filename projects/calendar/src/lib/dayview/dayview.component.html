@@ -6,7 +6,7 @@
 </div>
 
 <ng-template #defaultDay>
-  <div id="dDay" class="{{ getStates() }}">
+  <div id="dDay" class="{{ getStates() }}" [class.monthview]="!weekview">
     <p class="date mg-padding-small">
       {{ getDate() }}
     </p>

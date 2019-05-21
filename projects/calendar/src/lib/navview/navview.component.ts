@@ -26,9 +26,12 @@ export class NavviewComponent implements OnInit {
   @Input() template_next: TemplateRef<any>;
   @Input() template_title: TemplateRef<any>;
 
+  @Input() weekview: boolean;
+
   constructor() { }
 
   ngOnInit() { }
+
 
   // ************ LAYOUT
 
@@ -50,7 +53,7 @@ export class NavviewComponent implements OnInit {
   doNext() {
 
     // Navigate to next month
-    this.moment.add(1, 'months');
+    this.moment.add(1, this.weekview ? 'weeks' : 'months');
 
     // Notify
     this.onNavigate.emit(this.moment.clone());
@@ -63,7 +66,7 @@ export class NavviewComponent implements OnInit {
   doPrev() {
 
     // Navigate to previous month
-    this.moment.subtract(1, 'months');
+    this.moment.subtract(1, this.weekview ? 'weeks' : 'months');
 
     // Notify
     this.onNavigate.emit(this.moment.clone());
@@ -72,11 +75,36 @@ export class NavviewComponent implements OnInit {
 
   // ************ MANIPULATION
 
+  getTitle(){
+
+    if (this.moment) {
+      if (this.weekview) {
+
+        var start = this.moment.clone().startOf('week').add(1, 'day');
+        var end = this.moment.clone().endOf('week').add(1, 'day');
+
+        var format = 'D MMMM';
+
+        if(start.clone().year() !== end.clone().year()){
+
+          format = 'D MMMM YYYY';
+        }
+
+        return  start.format(format) + ', ' + end.format(format);
+      } else {
+
+        return this.getMonth() + ' ' + this.getYear();
+      }
+    }
+
+    return '';
+  }
+
   /*
   * Gets the current month
   * Returns readable string for month
   */
-  getMonth() : string {
+  getMonth(): string {
 
     // ? Check data
     if (this.moment) {
@@ -91,7 +119,7 @@ export class NavviewComponent implements OnInit {
   * Gets the current year
   * Returns year as a string
   */
-  getYear() : string {
+  getYear(): string {
 
     // ? Check data
     if (this.moment) {
@@ -106,7 +134,7 @@ export class NavviewComponent implements OnInit {
   * Gets the context of component
   * Returns Context object
   */
-  getMonth_context(): { month : number, year : number} {
+  getMonth_context(): { month: number, year: number } {
 
     return Object.assign({}, { month: this.moment.clone().month(), year: this.moment.clone().year() });
   }

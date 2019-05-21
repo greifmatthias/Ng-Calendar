@@ -27,6 +27,7 @@ export class CalendarComponent implements OnInit {
   // Layout
   @Input() show_topstrip: boolean;
   @Input() show_navigator: boolean;
+  @Input() show_weekview : boolean;
   // Colors
   @Input() color_topstrip: string;
   @Input() color_weekstrip: string;

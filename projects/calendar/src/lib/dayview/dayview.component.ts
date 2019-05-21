@@ -24,6 +24,8 @@ export class DayviewComponent implements OnInit {
   @Input() template: TemplateRef<any>;
   @Input() template_currentday: TemplateRef<any>;
 
+  @Input() weekview : boolean;
+
   constructor() { }
 
   ngOnInit() {

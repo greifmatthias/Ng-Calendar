@@ -6,20 +6,20 @@
         </p>
     </div>
 
-    <div id="dDays" [class.sixrows]="calcRows() === 6" class="mg-width-full" [style.background]="backgroundcolorMonth">
+    <div *ngIf="moment" id="dDays" class="mg-width-full" [style.background]="backgroundcolorMonth">
 
         <mg-dayview *ngFor="let day of calcPre()" [moment]="day" [class.isselected]="isSelected(day)"
             [isselected]="isSelected(day)" [ismultiselected]="isSelected(day) && selection.length > 1"
-            (onSelect)="doSelect(day, $event)" class="day pre" [template]="template_prev" [weekview]="true"></mg-dayview>
+            (onSelect)="doSelect(day, $event)" class="day pre" [template]="template_prev"></mg-dayview>
 
         <mg-dayview *ngFor="let day of calcDays()" [moment]="day" [class.isselected]="isSelected(day)"
             [isselected]="isSelected(day)" [ismultiselected]="isSelected(day) && selection.length > 1"
-            (onSelect)="doSelect(day, $event)" class="day current" [template]="template_current" [weekview]="true">
+            (onSelect)="doSelect(day, $event)" class="day current" [template]="template_current">
         </mg-dayview>
 
         <mg-dayview *ngFor="let day of calcPost()" [moment]="day" [class.isselected]="isSelected(day)"
             [isselected]="isSelected(day)" [ismultiselected]="isSelected(day) && selection.length > 1"
-            (onSelect)="doSelect(day, $event)" class="day post" [template]="template_next" [weekview]="true"></mg-dayview>
+            (onSelect)="doSelect(day, $event)" class="day post" [template]="template_next"></mg-dayview>
     </div>
 
 </div>

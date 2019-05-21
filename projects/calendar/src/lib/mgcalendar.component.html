@@ -3,13 +3,24 @@
     <div mg-navview *ngIf="showTopstrip()" id="dNavigation" class="mg-width-full mg-row mg-content-centered"
         [moment]="_moment" (onNavigate)="onNavigate($event)" [template_prev]="template_navigationprev"
         [template_next]="template_navigationnext" [template_title]="template_title" [show_navigator]="showNavigator()"
-        [style.background]="color_topstrip">
+        [style.background]="color_topstrip" [weekview]="show_weekview">
     </div>
 
-    <div mg-monthview id="dMonth" class="mg-width-full" [moment]="_moment"
+    <ng-container *ngIf="!show_weekview">
+        <div mg-monthview id="dMonth" class="mg-width-full" [moment]="_moment"
+            (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
+            [template_current]="template_monthcurrent" [template_next]="template_monthnext"
+            [template_prev]="template_monthprev" [backgroundcolorMonth]="color_monthview"
+            [backgroundcolorWeek]="color_weekstrip">
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="show_weekview">
+
+        <div mg-weekview id="dWeek" class="mg-width-full"[moment]="_moment"
         (onSelectionChanged)="onChangeSelection($event)" [selection]="selection"
         [template_current]="template_monthcurrent" [template_next]="template_monthnext"
         [template_prev]="template_monthprev" [backgroundcolorMonth]="color_monthview"
-        [backgroundcolorWeek]="color_weekstrip">
-    </div>
+        [backgroundcolorWeek]="color_weekstrip"></div>
+    </ng-container>
 </div>

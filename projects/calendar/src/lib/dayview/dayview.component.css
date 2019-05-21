@@ -6,18 +6,18 @@
     transition: all 0.2s;
 }
 
-#dDay,
-#dTemplate{
+#dDay, #dTemplate {
     width: 100%;
     height: 100%;
     position: relative;
     overflow: hidden;
 }
 
-#dDay.isselected {
+#dDay.isselected.monthview {
     transform: scale(1.1);
     background: linear-gradient(to top, #651FFF, #7C4DFF);
     border-radius: 5px;
+    box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
     -webkit-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 97px -15px rgba(0, 0, 0, 0.5);
@@ -34,6 +34,6 @@
     box-shadow: none;
 }
 
-#dDay.istoday:not(.isselected){
+#dDay.istoday:not(.isselected) {
     background: rgba(0, 0, 0, 0.05);
 }

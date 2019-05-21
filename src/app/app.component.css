@@ -51,8 +51,6 @@
   
   .day.isselected {
     background: linear-gradient(to top, #651fff, #7c4dff);
-    transform: scale(1.1);
-    border-radius: 8px;
     color: #FFFFFF;
     z-index: 100;
   }

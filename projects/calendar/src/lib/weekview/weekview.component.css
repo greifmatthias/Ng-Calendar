@@ -1,0 +1,54 @@
+#dContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+}
+
+/* Strip for displaying the days of the week */
+
+#dWeekStrip {
+    width: 100%;
+    flex: 0 1 60px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0;
+    z-index: 99;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+#dWeekStrip>p {
+    width: calc(100% / 7);
+    text-align: center;
+}
+
+/* Block where days of month are rendered in */
+
+#dDays {
+    float: left;
+    width: 100%;
+    flex: 1 1 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.day {
+    width: calc(100% / 7);
+    height: 100%;
+    position: relative;
+    float: left;
+    z-index: 0;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+}
+
+.day.isselected {
+    z-index: 100;
+}
+
+.day:hover {
+    cursor: pointer;
+}
