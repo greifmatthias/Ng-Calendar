@@ -144,11 +144,13 @@ export class WeekviewComponent implements OnInit {
       const firstday: moment_.Moment = this.moment.clone().startOf('week').dayOfYear() > this.moment.clone().startOf('month').dayOfYear() ? this.moment.clone().startOf('week').add(1, 'day') : this.moment.clone().startOf('month');
       const lastday: moment_.Moment = this.moment.clone().endOf('week').dayOfYear() < this.moment.clone().endOf('month').dayOfYear() ? this.moment.clone().endOf('week').add(1, 'day') : this.moment.clone().endOf('month');
 
-      for (var i = firstday.dayOfYear(); i <= firstday.dayOfYear() + 7 && i <= lastday.dayOfYear(); i++) {
+      for (var i = firstday.dayOfYear(); i <= lastday.dayOfYear(); i++) {
 
         output.push(moment().clone().dayOfYear(i));
       }
     }
+
+    console.log('CALCDAYS', output);
 
     return output;
   }
@@ -157,32 +159,22 @@ export class WeekviewComponent implements OnInit {
   * Calculates the days before the month starts to fill grid
   * Returns a MomentArray of days of the week before the month starts
   */
-  /* SAMPLE
-   * * 1
-   2 3 4
-   5 6 7
-  */
   calcPre(): moment_.Moment[] {
 
     var output: moment_.Moment[] = [];
 
-    if (this.moment) {
-      for (var i = this.moment.clone().startOf('week').day(); i > 0; i--) {
-        output.push(this.moment.clone().subtract(i + 1, 'days'));
+    if (this.moment && this.moment.clone().startOf('week').month() !== this.moment.clone().month() && this.moment.clone().startOf('week').month() !== this.moment.clone().endOf('week').month()) {
+      for (var i = this.moment.clone().startOf('month').subtract(1, 'days').day(); i > 0; i--) {
+        output.push(this.moment.clone().subtract(i, 'days'));
       }
     }
-
+    
     return output;
   }
 
   /*
   * Calculates the days to the end of the month to fill grid
   * Returns a MomentArray of days of the week after the month ends
-  */
-  /* SAMPLE
-   1 2 3
-   4 5 6
-   7 * *
   */
   calcPost(): moment_.Moment[] {
 
@@ -193,11 +185,11 @@ export class WeekviewComponent implements OnInit {
       for (var i = 0; i < 7 - (this.calcPre().length + this.calcDays().length); i++) {
 
         output.push(
-          this.moment.clone().endOf('week').add(1, 'day').subtract(i, 'days'));
+          this.moment.clone().endOf('month').add(i + 1, 'days'));
       }
     }
 
-    return output.reverse();
+    return output;
   }
 
   // ************ MANIPULATION
