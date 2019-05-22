@@ -31,9 +31,9 @@ export class WeekviewComponent implements OnInit {
 
   weeknumber: number = 1;
 
-  constructor() {
+  @Input() show_vertical : boolean;
 
-  }
+  constructor() { }
 
   ngOnInit() { }
 
@@ -122,8 +122,15 @@ export class WeekviewComponent implements OnInit {
   getWeekdays(): string[] {
     var output = [];
 
+    // Check for format
+    var format = 'dddd';
+    if(this.show_vertical){
+
+      format = 'dd';
+    }
+
     for (var i = 1; i <= 7; i++) {
-      output.push(moment().clone().isoWeekday(i).format('dddd'));
+      output.push(moment().clone().isoWeekday(i).format(format));
     }
 
     return output;
@@ -149,8 +156,6 @@ export class WeekviewComponent implements OnInit {
         output.push(moment().clone().dayOfYear(i));
       }
     }
-
-    console.log('CALCDAYS', output);
 
     return output;
   }
@@ -198,5 +203,4 @@ export class WeekviewComponent implements OnInit {
 
     return this.selection.filter(day => day.clone().startOf('day').diff(daymoment.clone().startOf('day'), 'days') === 0).length > 0;
   }
-
 }

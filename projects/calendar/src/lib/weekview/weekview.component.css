@@ -6,6 +6,10 @@
     position: relative;
 }
 
+#dContainer.vertical {
+    flex-flow: row;
+}
+
 /* Strip for displaying the days of the week */
 
 #dWeekStrip {
@@ -20,9 +24,27 @@
     box-sizing: border-box;
 }
 
+#dContainer.vertical #dWeekStrip {
+    width: 60px;
+    height: 100%;
+    flex-direction: column;
+}
+
 #dWeekStrip>p {
     width: calc(100% / 7);
     text-align: center;
+}
+
+#dContainer.vertical #dWeekStrip>p {
+    width: auto;
+    height: calc(100% / 7);
+}
+
+#dContainer.vertical #dWeekStrip>p:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
 }
 
 /* Block where days of month are rendered in */
@@ -33,6 +55,15 @@
     flex: 1 1 auto;
     position: relative;
     overflow: hidden;
+}
+
+#dContainer.vertical #dDays {
+    display: flex;
+    flex-direction: column;
+}
+
+#dContainer.vertical #dDays .day {
+    width: 100%;
 }
 
 .day {

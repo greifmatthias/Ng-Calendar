@@ -1,4 +1,4 @@
-<div id="dContainer">
+<div id="dContainer" [class.vertical]="show_vertical">
 
     <div id="dWeekStrip" class="mg-width-full mg-row mg-content-centered" [style.background]="backgroundcolorWeek">
         <p *ngFor="let weekday of getWeekdays()">
