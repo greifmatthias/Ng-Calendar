@@ -13,7 +13,7 @@ import * as moment from 'moment';
 })
 export class AppComponent implements OnInit {
 
-  @ViewChild('calendar') calendar: MgCalendarModule;
+  @ViewChild('calendar', { read: true, static: false }) calendar: MgCalendarModule;
 
   template_month_context: any = {
     preset: 'Current selected month'

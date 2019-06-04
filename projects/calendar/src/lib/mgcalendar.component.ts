@@ -14,7 +14,7 @@ const moment = moment_;
 })
 export class CalendarComponent implements OnInit {
 
-  @ViewChild('dCalendar') calendar: ElementRef;
+  @ViewChild('dCalendar', { read: true, static: false }) calendar: ElementRef;
 
   // Api
   @Output() onSelectionChanged = new EventEmitter<moment_.Moment[]>();
@@ -27,8 +27,8 @@ export class CalendarComponent implements OnInit {
   // Layout
   @Input() show_topstrip: boolean;
   @Input() show_navigator: boolean;
-  @Input() show_weekview : boolean;
-  @Input() weekview_orientation_vertical : boolean;
+  @Input() show_weekview: boolean;
+  @Input() weekview_orientation_vertical: boolean;
 
   // Colors
   @Input() color_topstrip: string;
@@ -79,7 +79,7 @@ export class CalendarComponent implements OnInit {
   * Sets local var
   */
   doSelect(moment: moment_.Moment): void {
-    
+
     this._moment = moment;
   }
 
