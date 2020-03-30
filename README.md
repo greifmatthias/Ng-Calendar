@@ -1,4 +1,7 @@
 # NgCalendar
+
+[![Package Quality](https://npm.packagequality.com/shield/ng-mg-calendar.svg)](https://packagequality.com/#?package=ng-mg-calendar)
+
 NgCalendar is a simple library for Angular that allows you to render a bare functional calendar.
 
 * Renders calendar
